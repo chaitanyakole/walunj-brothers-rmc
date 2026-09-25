@@ -61,30 +61,53 @@ export default function QualityTestingGuide() {
   ];
 
   return (
-    <section className="py-20 bg-[#14171d] border-t border-white/5 relative">
+    <section className="py-14 sm:py-20 bg-[#14171d] border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Strict Quality Control Protocol</span>
           </div>
 
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white tracking-tight mb-4">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl text-white tracking-tight mb-3 sm:mb-4">
             Quality Assurance from Batching to Placement
           </h2>
 
-          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed">
             How we maintain uniform strength, workability, and durability on every cubic meter delivered across Pune construction sites.
           </p>
         </div>
 
+        {/* Mobile Step Switcher Bar (visible on small screens) */}
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-4 lg:hidden">
+          {steps.map((step, idx) => {
+            const isActive = activeStep === idx;
+            return (
+              <button
+                key={step.id}
+                type="button"
+                onClick={() => setActiveStep(idx)}
+                className={`px-3.5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap border shrink-0 transition-all flex items-center gap-1.5 active:scale-95 ${
+                  isActive
+                    ? 'bg-orange-500 text-slate-950 border-orange-400 shadow-md shadow-orange-500/20'
+                    : 'bg-[#181c24] text-slate-300 border-white/10 hover:border-white/20'
+                }`}
+              >
+                <span>Step 0{step.id}</span>
+                <span className="opacity-70">•</span>
+                <span>{step.title}</span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* 2-Column Quality Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
           
-          {/* Left: Step Selection Cards */}
-          <div className="lg:col-span-6 space-y-3">
+          {/* Left: Step Selection Cards (Hidden on mobile where horizontal tab strip is active) */}
+          <div className="hidden lg:block lg:col-span-6 space-y-3">
             {steps.map((step, idx) => {
               const Icon = step.icon;
               const isActive = activeStep === idx;
@@ -129,8 +152,8 @@ export default function QualityTestingGuide() {
           </div>
 
           {/* Right: Active Step Details & Real Laboratory Visual */}
-          <div className="lg:col-span-6 bg-[#181c24] rounded-2xl p-6 sm:p-8 border border-white/10 shadow-2xl relative overflow-hidden">
-            <div className="relative h-56 rounded-xl overflow-hidden mb-6 border border-white/10">
+          <div className="col-span-1 lg:col-span-6 bg-[#181c24] rounded-2xl p-5 sm:p-8 border border-white/10 shadow-2xl relative overflow-hidden">
+            <div className="relative h-44 sm:h-56 rounded-xl overflow-hidden mb-5 sm:mb-6 border border-white/10">
               <img
                 src={images.qualityTest}
                 alt="Concrete slump and cube testing on site"

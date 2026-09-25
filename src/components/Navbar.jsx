@@ -21,6 +21,21 @@ export default function Navbar({ onQuoteClick }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is active
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { label: 'Home', href: '#hero' },
     { label: 'About', href: '#about' },
@@ -56,17 +71,17 @@ export default function Navbar({ onQuoteClick }) {
             <a
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero')}
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-2.5 sm:gap-3 group min-w-0"
               aria-label="Walunj Brother's RMC Home"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 shadow-inner group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
-                <HardHat className="w-6 h-6" />
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 shadow-inner group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300 shrink-0">
+                <HardHat className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-base sm:text-lg tracking-wider text-white leading-tight uppercase group-hover:text-orange-400 transition-colors">
+              <div className="flex flex-col min-w-0">
+                <span className="font-heading font-extrabold text-sm sm:text-base lg:text-lg tracking-wider text-white leading-tight uppercase group-hover:text-orange-400 transition-colors truncate">
                   Walunj Brother's
                 </span>
-                <span className="text-[10px] sm:text-xs tracking-[0.22em] text-orange-500 font-bold uppercase">
+                <span className="text-[9px] sm:text-xs tracking-[0.16em] sm:tracking-[0.22em] text-orange-500 font-bold uppercase truncate">
                   Ready-Mix Concrete
                 </span>
               </div>
@@ -120,11 +135,11 @@ export default function Navbar({ onQuoteClick }) {
               </button>
             </div>
 
-            {/* Mobile Hamburger Button */}
-            <div className="flex items-center gap-2 lg:hidden">
+            {/* Mobile Hamburger Button & Quick Action */}
+            <div className="flex items-center gap-2 lg:hidden shrink-0">
               <button
                 onClick={onQuoteClick}
-                className="bg-orange-500 hover:bg-orange-600 text-slate-950 font-bold text-xs px-3 py-1.5 rounded-md flex items-center gap-1 active:scale-95 transition-all"
+                className="bg-orange-500 hover:bg-orange-600 text-slate-950 font-extrabold text-xs px-3 py-2 min-h-[40px] rounded-lg flex items-center gap-1 active:scale-95 transition-all shadow-md shadow-orange-500/20"
                 aria-label="Quick Quote"
               >
                 <span>Quote</span>
@@ -132,7 +147,7 @@ export default function Navbar({ onQuoteClick }) {
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 text-slate-300 hover:text-white bg-white/5 rounded-lg border border-white/10 active:scale-95"
+                className="w-10 h-10 flex items-center justify-center text-slate-300 hover:text-white bg-white/5 rounded-lg border border-white/10 active:scale-95"
                 aria-label="Toggle Mobile Menu"
                 aria-expanded={isMobileMenuOpen}
               >
@@ -159,10 +174,10 @@ export default function Navbar({ onQuoteClick }) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[82%] max-w-sm z-50 bg-[#14171d] border-l border-white/10 p-6 flex flex-col justify-between overflow-y-auto lg:hidden"
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm z-50 bg-[#14171d] border-l border-white/10 p-5 sm:p-6 flex flex-col justify-between overflow-y-auto lg:hidden pt-[calc(1.25rem+env(safe-area-inset-top,0px))] pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))]"
             >
               <div>
-                <div className="flex items-center justify-between pb-5 border-b border-white/10">
+                <div className="flex items-center justify-between pb-4 border-b border-white/10">
                   <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500">
                       <HardHat className="w-5 h-5" />
@@ -178,7 +193,7 @@ export default function Navbar({ onQuoteClick }) {
                   </div>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/5"
+                    className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-white rounded-lg hover:bg-white/5 active:scale-95"
                     aria-label="Close Menu"
                   >
                     <X className="w-5 h-5" />
@@ -186,16 +201,16 @@ export default function Navbar({ onQuoteClick }) {
                 </div>
 
                 {/* Mobile Links */}
-                <nav className="flex flex-col gap-1.5 py-6">
+                <nav className="flex flex-col gap-1 py-4">
                   {navLinks.map((link) => (
                     <a
                       key={link.label}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className="flex items-center justify-between px-3.5 py-2.5 text-base font-medium text-slate-200 hover:text-orange-400 hover:bg-white/5 rounded-lg transition-colors"
+                      className="flex items-center justify-between px-3.5 py-3 text-base font-medium text-slate-200 hover:text-orange-400 hover:bg-white/5 rounded-lg transition-colors min-h-[44px] active:bg-white/10"
                     >
                       <span>{link.label}</span>
-                      <ChevronRight className="w-4 h-4 text-slate-600" />
+                      <ChevronRight className="w-4 h-4 text-slate-500" />
                     </a>
                   ))}
                 </nav>
@@ -208,7 +223,7 @@ export default function Navbar({ onQuoteClick }) {
                     setIsMobileMenuOpen(false);
                     onQuoteClick();
                   }}
-                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-heading font-bold text-sm py-3 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 active:scale-98"
+                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-heading font-bold text-sm min-h-[44px] py-3 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 active:scale-98"
                 >
                   <FileText className="w-4 h-4" />
                   <span>Request an RMC Quote</span>
@@ -218,7 +233,7 @@ export default function Navbar({ onQuoteClick }) {
                   href={getWhatsAppUrl("Hello Walunj Brother's RMC, I would like to enquire about RMC supply for my construction project.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 font-semibold text-sm py-2.5 rounded-lg flex items-center justify-center gap-2"
+                  className="w-full bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 font-semibold text-sm min-h-[44px] py-2.5 rounded-lg flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4 text-emerald-400" />
                   <span>WhatsApp Enquiry</span>
@@ -227,14 +242,14 @@ export default function Navbar({ onQuoteClick }) {
                 {business.phone ? (
                   <a
                     href={`tel:${business.phone}`}
-                    className="w-full bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 font-semibold text-sm py-2.5 rounded-lg flex items-center justify-center gap-2"
+                    className="w-full bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 font-semibold text-sm min-h-[44px] py-2.5 rounded-lg flex items-center justify-center gap-2"
                   >
                     <Phone className="w-4 h-4 text-orange-400" />
                     <span>Call: {business.phone}</span>
                   </a>
                 ) : null}
 
-                <p className="text-[11px] text-slate-400 text-center pt-2">
+                <p className="text-[11px] text-slate-400 text-center pt-1">
                   Serving Wagholi, Pune & Surrounding Corridors
                 </p>
               </div>

@@ -21,27 +21,27 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 bg-black/80 backdrop-blur-md">
         <div className="absolute inset-0" onClick={onClose} />
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="relative max-w-4xl w-full bg-[#161a22] rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl flex flex-col max-h-[90vh] z-10 overflow-hidden"
+          className="relative max-w-4xl w-full bg-[#161a22] rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl flex flex-col max-h-[92vh] sm:max-h-[90vh] z-10 overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Modal Header */}
-          <div className="p-6 bg-[#181d26] border-b border-white/10 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-400 shrink-0">
-                <FileText className="w-5 h-5" />
+          <div className="p-4 sm:p-6 bg-[#181d26] border-b border-white/10 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-400 shrink-0">
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div>
-                <h3 className="font-heading font-extrabold text-lg sm:text-xl text-white">
-                  Technical Mix Specification Sheet (IS 456 & IS 4926)
+              <div className="min-w-0">
+                <h3 className="font-heading font-extrabold text-base sm:text-xl text-white truncate">
+                  Technical Mix Specifications (IS 456 / IS 4926)
                 </h3>
-                <p className="text-xs text-slate-400">
+                <p className="text-[11px] sm:text-xs text-slate-400 truncate">
                   Engineering guidelines for Ready-Mix Concrete batching & site application
                 </p>
               </div>
@@ -49,21 +49,27 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
 
             <button
               onClick={onClose}
-              className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors flex items-center justify-center shrink-0 active:scale-95"
+              aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Modal Body - Scrollable */}
-          <div className="p-6 overflow-y-auto space-y-6">
+          <div className="p-4 sm:p-6 overflow-y-auto space-y-5">
             
+            {/* Mobile swipe hint */}
+            <div className="flex items-center justify-between text-[11px] text-orange-400/90 font-medium sm:hidden bg-orange-500/10 px-3 py-1.5 rounded-lg border border-orange-500/20">
+              <span>← Swipe table horizontally for all values →</span>
+            </div>
+
             {/* Table */}
             <div className="overflow-x-auto rounded-xl border border-white/10 bg-[#13161c]">
-              <table className="w-full text-left text-xs">
+              <table className="w-full min-w-[620px] text-left text-xs">
                 <thead className="bg-[#1b2029] text-slate-300 font-bold uppercase tracking-wider text-[11px] border-b border-white/10">
                   <tr>
-                    <th className="py-3 px-4">Grade</th>
+                    <th className="py-3 px-3.5">Grade</th>
                     <th className="py-3 px-3">7-Day Strength</th>
                     <th className="py-3 px-3">28-Day Strength</th>
                     <th className="py-3 px-3">Agg. Size</th>
@@ -75,7 +81,7 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
                 <tbody className="divide-y divide-white/5 text-slate-300">
                   {specs.map((item) => (
                     <tr key={item.grade} className="hover:bg-white/[0.02] transition-colors">
-                      <td className="py-3.5 px-4 font-heading font-black text-white text-sm">
+                      <td className="py-3.5 px-3.5 font-heading font-black text-white text-sm">
                         {item.grade}
                       </td>
                       <td className="py-3.5 px-3 text-slate-400">{item.strength7d}</td>
@@ -90,7 +96,7 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
                             onClose();
                             if (onSelectGrade) onSelectGrade(item.grade);
                           }}
-                          className="px-2.5 py-1 rounded-md bg-orange-500/10 hover:bg-orange-500 hover:text-slate-950 text-orange-400 text-[11px] font-bold transition-all"
+                          className="px-2.5 py-1.5 min-h-[36px] rounded-md bg-orange-500/10 hover:bg-orange-500 hover:text-slate-950 text-orange-400 text-[11px] font-bold transition-all active:scale-95"
                         >
                           Quote
                         </button>
@@ -102,10 +108,10 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
             </div>
 
             {/* Essential Site Placement Guidelines */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-black/30 border border-white/5 space-y-2">
-                <h4 className="font-heading font-bold text-sm text-white flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-orange-400" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              <div className="p-3.5 sm:p-4 rounded-xl bg-black/30 border border-white/5 space-y-1.5">
+                <h4 className="font-heading font-bold text-xs sm:text-sm text-white flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-orange-400 shrink-0" />
                   <span>On-Site Slump & Discharge Advice</span>
                 </h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
@@ -113,9 +119,9 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-black/30 border border-white/5 space-y-2">
-                <h4 className="font-heading font-bold text-sm text-white flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-orange-400" />
+              <div className="p-3.5 sm:p-4 rounded-xl bg-black/30 border border-white/5 space-y-1.5">
+                <h4 className="font-heading font-bold text-xs sm:text-sm text-white flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-orange-400 shrink-0" />
                   <span>Curing Protocol (IS 456)</span>
                 </h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
@@ -130,16 +136,16 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
           </div>
 
           {/* Modal Footer */}
-          <div className="p-4 sm:p-5 bg-[#181d26] border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+          <div className="p-3.5 sm:p-5 bg-[#181d26] border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
             <span className="text-xs text-slate-400">
               Walunj Brother's RMC • Wagholi, Pune
             </span>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto justify-end">
               <button
                 type="button"
                 onClick={handlePrint}
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-semibold border border-white/10 transition-colors"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-semibold border border-white/10 transition-colors"
               >
                 <Printer className="w-3.5 h-3.5" />
                 <span>Print Spec Sheet</span>
@@ -148,9 +154,9 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 rounded-lg bg-orange-500 hover:bg-orange-600 text-slate-950 text-xs font-bold transition-all"
+                className="w-full sm:w-auto px-5 py-2.5 min-h-[40px] rounded-lg bg-orange-500 hover:bg-orange-600 text-slate-950 text-xs font-bold transition-all active:scale-95 text-center"
               >
-                Close
+                Close Spec Sheet
               </button>
             </div>
           </div>

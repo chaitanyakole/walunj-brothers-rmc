@@ -47,12 +47,12 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#121417] text-slate-100 flex flex-col selection:bg-orange-500 selection:text-white">
+    <div className="relative min-h-screen bg-[#121417] text-slate-100 flex flex-col selection:bg-orange-500 selection:text-white w-full overflow-x-hidden">
       {/* Sticky Navigation */}
       <Navbar onQuoteClick={scrollToQuote} />
 
       {/* Main Homepage Flow */}
-      <main className="flex-1">
+      <main className="flex-1 w-full overflow-x-hidden">
         {/* 1. Hero */}
         <Hero onQuoteClick={scrollToQuote} />
 

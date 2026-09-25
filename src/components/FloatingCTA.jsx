@@ -64,14 +64,14 @@ export default function FloatingCTA({ onQuoteClick }) {
       </div>
 
       {/* Mobile Fixed Bottom Action Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#13161c]/95 backdrop-blur-md border-t border-white/10 px-3 py-2.5 shadow-2xl">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#13161c]/95 backdrop-blur-md border-t border-white/10 px-3 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] shadow-2xl">
         <div className="grid grid-cols-3 gap-2 max-w-md mx-auto">
           {/* WhatsApp Action */}
           <a
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center py-1.5 px-2 rounded-lg bg-emerald-600/15 border border-emerald-500/30 text-emerald-400 active:scale-95 transition-transform"
+            className="flex flex-col items-center justify-center min-h-[46px] py-1.5 px-2 rounded-xl bg-emerald-600/15 border border-emerald-500/30 text-emerald-400 active:scale-95 transition-transform"
           >
             <MessageSquare className="w-5 h-5 mb-0.5" />
             <span className="text-[11px] font-bold tracking-tight">WhatsApp</span>
@@ -81,7 +81,7 @@ export default function FloatingCTA({ onQuoteClick }) {
           {business.phone ? (
             <a
               href={`tel:${business.phone}`}
-              className="flex flex-col items-center justify-center py-1.5 px-2 rounded-lg bg-white/5 border border-white/10 text-slate-200 active:scale-95 transition-transform"
+              className="flex flex-col items-center justify-center min-h-[46px] py-1.5 px-2 rounded-xl bg-white/5 border border-white/10 text-slate-200 active:scale-95 transition-transform"
             >
               <Phone className="w-5 h-5 mb-0.5 text-orange-400" />
               <span className="text-[11px] font-bold tracking-tight">Call Now</span>
@@ -89,7 +89,7 @@ export default function FloatingCTA({ onQuoteClick }) {
           ) : (
             <button
               onClick={onQuoteClick}
-              className="flex flex-col items-center justify-center py-1.5 px-2 rounded-lg bg-white/5 border border-white/10 text-slate-200 active:scale-95 transition-transform"
+              className="flex flex-col items-center justify-center min-h-[46px] py-1.5 px-2 rounded-xl bg-white/5 border border-white/10 text-slate-200 active:scale-95 transition-transform"
             >
               <Phone className="w-5 h-5 mb-0.5 text-orange-400" />
               <span className="text-[11px] font-bold tracking-tight">Contact</span>
@@ -99,7 +99,7 @@ export default function FloatingCTA({ onQuoteClick }) {
           {/* Get Quote Action */}
           <button
             onClick={onQuoteClick}
-            className="flex flex-col items-center justify-center py-1.5 px-2 rounded-lg bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold active:scale-95 transition-transform shadow-md shadow-orange-500/20"
+            className="flex flex-col items-center justify-center min-h-[46px] py-1.5 px-2 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold active:scale-95 transition-transform shadow-md shadow-orange-500/20"
           >
             <FileText className="w-5 h-5 mb-0.5" />
             <span className="text-[11px] font-extrabold tracking-tight">Get Quote</span>

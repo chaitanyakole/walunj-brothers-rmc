@@ -120,29 +120,29 @@ export default function QuoteForm({
   };
 
   return (
-    <section id="quote-section" className="py-20 md:py-28 bg-[#121418] relative">
+    <section id="quote-section" className="py-14 sm:py-20 md:py-28 bg-[#121418] relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-orange-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
             <Calculator className="w-3.5 h-3.5" />
             <span>Instant Concrete Quotation</span>
           </div>
 
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mb-4">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight mb-3 sm:mb-4">
             Need RMC for Your Project?
           </h2>
 
-          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Tell us about your concrete requirement and our team can get back to you with competitive rates and delivery schedules.
           </p>
         </div>
 
         {/* Card Form Container */}
-        <div className="bg-[#181c24] rounded-2xl sm:rounded-3xl border border-white/10 p-6 sm:p-10 shadow-2xl relative">
+        <div className="bg-[#181c24] rounded-2xl sm:rounded-3xl border border-white/10 p-5 sm:p-8 md:p-10 shadow-2xl relative">
           <AnimatePresence mode="wait">
             {submitted ? (
               <motion.div
@@ -150,30 +150,30 @@ export default function QuoteForm({
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                className="py-12 text-center"
+                className="py-10 sm:py-12 text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="w-8 h-8" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto mb-5 sm:mb-6">
+                  <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8" />
                 </div>
 
-                <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white mb-3">
+                <h3 className="font-heading font-extrabold text-xl sm:text-3xl text-white mb-2 sm:mb-3">
                   Thank You, {formData.name}!
                 </h3>
 
-                <p className="text-slate-300 text-base max-w-lg mx-auto mb-6 leading-relaxed">
+                <p className="text-slate-300 text-sm sm:text-base max-w-lg mx-auto mb-6 leading-relaxed">
                   Your enquiry for <strong className="text-orange-400">{formData.grade}</strong> concrete for your site at <strong className="text-white">{formData.location}</strong> has been logged.
                 </p>
 
-                <div className="p-4 rounded-xl bg-black/40 border border-white/10 max-w-md mx-auto mb-8 text-xs text-slate-400 text-left space-y-1.5">
+                <div className="p-4 rounded-xl bg-black/40 border border-white/10 max-w-md mx-auto mb-6 sm:mb-8 text-xs text-slate-400 text-left space-y-1.5">
                   <p><strong className="text-slate-200">Mobile:</strong> {formData.phone}</p>
                   <p><strong className="text-slate-200">Quantity:</strong> {formData.quantity ? `${formData.quantity} m³` : 'To be confirmed'}</p>
                   <p><strong className="text-slate-200">Delivery Date:</strong> {formData.deliveryDate || 'Flexible'}</p>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-center gap-4">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                   <button
                     onClick={handleWhatsAppSubmit}
-                    className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm min-h-[46px] px-6 py-3 rounded-xl transition-all active:scale-95"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>Send directly to WhatsApp</span>
@@ -188,12 +188,12 @@ export default function QuoteForm({
                 </div>
               </motion.div>
             ) : (
-              <form onSubmit={handleStandardSubmit} noValidate className="space-y-6">
+              <form onSubmit={handleStandardSubmit} noValidate className="space-y-4 sm:space-y-6">
                 
                 {/* Row 1: Name & Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 sm:mb-2">
                       Full Name <span className="text-orange-500">*</span>
                     </label>
                     <div className="relative">
@@ -206,13 +206,13 @@ export default function QuoteForm({
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="e.g. Ramesh Patil"
-                        className={`w-full bg-[#13161c] border rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
+                        className={`w-full bg-[#13161c] border rounded-xl pl-10 pr-4 py-3 min-h-[48px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
                           errors.name ? 'border-red-500 bg-red-500/5' : 'border-white/10 hover:border-white/20'
                         }`}
                       />
                     </div>
                     {errors.name && (
-                      <p className="mt-1.5 text-xs text-red-400 flex items-center gap-1">
+                      <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
                         <AlertCircle className="w-3.5 h-3.5" />
                         <span>{errors.name}</span>
                       </p>
@@ -220,7 +220,7 @@ export default function QuoteForm({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 sm:mb-2">
                       Mobile Number <span className="text-orange-500">*</span>
                     </label>
                     <div className="relative">
@@ -233,13 +233,13 @@ export default function QuoteForm({
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="10-digit mobile number"
-                        className={`w-full bg-[#13161c] border rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
+                        className={`w-full bg-[#13161c] border rounded-xl pl-10 pr-4 py-3 min-h-[48px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
                           errors.phone ? 'border-red-500 bg-red-500/5' : 'border-white/10 hover:border-white/20'
                         }`}
                       />
                     </div>
                     {errors.phone && (
-                      <p className="mt-1.5 text-xs text-red-400 flex items-center gap-1">
+                      <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
                         <AlertCircle className="w-3.5 h-3.5" />
                         <span>{errors.phone}</span>
                       </p>
@@ -248,9 +248,9 @@ export default function QuoteForm({
                 </div>
 
                 {/* Row 2: Email & Project Type */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 sm:mb-2">
                       Email Address <span className="text-slate-500 font-normal lowercase">(optional)</span>
                     </label>
                     <div className="relative">
@@ -263,20 +263,20 @@ export default function QuoteForm({
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="yourname@gmail.com"
-                        className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+                        className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl pl-10 pr-4 py-3 min-h-[48px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 sm:mb-2">
                       Project Type
                     </label>
                     <select
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
-                      className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+                      className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl px-4 py-3 min-h-[48px] text-base sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
                     >
                       <option value="Residential">Residential Construction (House / Apartment)</option>
                       <option value="Commercial">Commercial Project (Shop / Office / Mall)</option>
@@ -288,9 +288,9 @@ export default function QuoteForm({
                 </div>
 
                 {/* Row 3: Site Location & RMC Grade */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 sm:mb-2">
                       Site Location / Area <span className="text-orange-500">*</span>
                     </label>
                     <div className="relative">
@@ -303,13 +303,13 @@ export default function QuoteForm({
                         value={formData.location}
                         onChange={handleChange}
                         placeholder="e.g. Wagholi, Lonikand, Kharadi..."
-                        className={`w-full bg-[#13161c] border rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
+                        className={`w-full bg-[#13161c] border rounded-xl pl-10 pr-4 py-3 min-h-[48px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
                           errors.location ? 'border-red-500 bg-red-500/5' : 'border-white/10 hover:border-white/20'
                         }`}
                       />
                     </div>
                     {errors.location && (
-                      <p className="mt-1.5 text-xs text-red-400 flex items-center gap-1">
+                      <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
                         <AlertCircle className="w-3.5 h-3.5" />
                         <span>{errors.location}</span>
                       </p>
@@ -317,7 +317,7 @@ export default function QuoteForm({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 sm:mb-2">
                       RMC Grade Required <span className="text-orange-500">*</span>
                     </label>
                     <div className="relative">
@@ -328,7 +328,7 @@ export default function QuoteForm({
                         name="grade"
                         value={formData.grade}
                         onChange={handleChange}
-                        className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl pl-10 pr-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+                        className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl pl-10 pr-4 py-3 min-h-[48px] text-base sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
                       >
                         {rmcGrades.map((g) => (
                           <option key={g.grade} value={g.grade}>
@@ -339,7 +339,7 @@ export default function QuoteForm({
                       </select>
                     </div>
                     {errors.grade && (
-                      <p className="mt-1.5 text-xs text-red-400 flex items-center gap-1">
+                      <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
                         <AlertCircle className="w-3.5 h-3.5" />
                         <span>{errors.grade}</span>
                       </p>
@@ -348,9 +348,9 @@ export default function QuoteForm({
                 </div>
 
                 {/* Row 4: Quantity & Delivery Date */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 sm:mb-2">
                       Estimated Quantity (m³) <span className="text-slate-500 font-normal lowercase">(cubic meters)</span>
                     </label>
                     <div className="relative">
@@ -362,7 +362,7 @@ export default function QuoteForm({
                         value={formData.quantity}
                         onChange={handleChange}
                         placeholder="e.g. 12 or 24"
-                        className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+                        className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl px-4 py-3 min-h-[48px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
                       />
                       <span className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-xs text-slate-400 font-medium">
                         m³
@@ -371,7 +371,7 @@ export default function QuoteForm({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 sm:mb-2">
                       Required Delivery Date <span className="text-slate-500 font-normal lowercase">(preferred date)</span>
                     </label>
                     <div className="relative">
@@ -383,7 +383,7 @@ export default function QuoteForm({
                         name="deliveryDate"
                         value={formData.deliveryDate}
                         onChange={handleChange}
-                        className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+                        className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl pl-10 pr-4 py-3 min-h-[48px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
                       />
                     </div>
                   </div>
@@ -391,7 +391,7 @@ export default function QuoteForm({
 
                 {/* Row 5: Additional Requirements */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5 sm:mb-2">
                     Additional Requirements / Pump Details <span className="text-slate-500 font-normal lowercase">(optional)</span>
                   </label>
                   <textarea
@@ -400,16 +400,16 @@ export default function QuoteForm({
                     value={formData.notes}
                     onChange={handleChange}
                     placeholder="E.g., Boom pump required, concrete casting at 4th floor, preferred morning timing, narrow road access notes..."
-                    className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+                    className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl p-3.5 sm:p-4 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
                   />
                 </div>
 
                 {/* Dual Action Buttons: Request a Quote & Send via WhatsApp */}
-                <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="pt-2 sm:pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {/* Primary Form Submit */}
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-heading font-extrabold text-sm py-4 px-6 rounded-xl flex items-center justify-center gap-2.5 shadow-xl shadow-orange-500/20 active:scale-98 transition-all"
+                    className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-heading font-extrabold text-sm min-h-[48px] py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2.5 shadow-xl shadow-orange-500/20 active:scale-98 transition-all"
                   >
                     <FileText className="w-5 h-5 text-slate-950" />
                     <span>Request a Quote</span>
@@ -419,7 +419,7 @@ export default function QuoteForm({
                   <button
                     type="button"
                     onClick={handleWhatsAppSubmit}
-                    className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-heading font-bold text-sm py-4 px-6 rounded-xl flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-600/20 active:scale-98 transition-all"
+                    className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-heading font-bold text-sm min-h-[48px] py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-600/20 active:scale-98 transition-all"
                   >
                     <MessageSquare className="w-5 h-5" />
                     <span>Send via WhatsApp</span>

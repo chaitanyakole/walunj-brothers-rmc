@@ -8,25 +8,25 @@ export default function RmcGrades({ onSelectGrade }) {
   const [specsModalOpen, setSpecsModalOpen] = useState(false);
 
   return (
-    <section id="grades" className="py-20 md:py-28 bg-[#121418] relative">
+    <section id="grades" className="py-14 sm:py-20 md:py-28 bg-[#121418] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
             <Layers className="w-3.5 h-3.5" />
             <span>Mix Classification</span>
           </div>
 
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mb-5">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight mb-4 sm:mb-5">
             Concrete Grades
           </h2>
 
-          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed">
             Standard reference concrete mix designs batched for diverse structural strengths, from plain cement foundations to heavy-duty high-rise casting.
           </p>
 
           <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-center gap-3">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.04] border border-white/5 text-xs text-slate-400 text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/5 text-xs text-slate-400 text-left">
               <Info className="w-4 h-4 text-orange-400 shrink-0" />
               <span>
                 Standard grade specifications shown for reference. Availability and custom mix proportions are confirmed based on site requirements.
@@ -36,7 +36,7 @@ export default function RmcGrades({ onSelectGrade }) {
             <button
               type="button"
               onClick={() => setSpecsModalOpen(true)}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-orange-500/15 hover:bg-orange-500/25 border border-orange-500/30 text-orange-400 text-xs font-bold transition-all shrink-0 active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl bg-orange-500/15 hover:bg-orange-500/25 border border-orange-500/30 text-orange-400 text-xs font-bold transition-all shrink-0 active:scale-95"
             >
               <FileSpreadsheet className="w-4 h-4" />
               <span>View Slump & Engineering Specs</span>

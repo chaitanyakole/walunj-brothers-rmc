@@ -43,7 +43,7 @@ export default function Hero({ onQuoteClick }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.12] mb-6"
+            className="font-heading font-extrabold text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.14] mb-4 sm:mb-6"
           >
             Quality Ready-Mix Concrete, <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500">
@@ -56,7 +56,7 @@ export default function Hero({ onQuoteClick }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed mb-8 max-w-2xl"
+            className="text-sm sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed mb-7 sm:mb-8 max-w-2xl"
           >
             Reliable RMC supply and transportation for residential, commercial and infrastructure construction projects across Pune and surrounding areas.
           </motion.p>
@@ -66,43 +66,45 @@ export default function Hero({ onQuoteClick }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap items-center gap-3.5 sm:gap-4 mb-10"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto"
           >
             <button
               onClick={onQuoteClick}
-              className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-orange-500 via-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-heading font-extrabold text-base px-7 py-3.5 rounded-xl shadow-xl shadow-orange-500/25 active:scale-95 transition-all duration-200"
+              className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-orange-500 via-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-heading font-extrabold text-sm sm:text-base min-h-[48px] px-7 py-3.5 rounded-xl shadow-xl shadow-orange-500/25 active:scale-98 transition-all duration-200"
             >
               <FileText className="w-5 h-5 text-slate-950" />
               <span>Get a Quote</span>
             </button>
 
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-heading font-bold text-base px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-600/25 active:scale-95 transition-all duration-200"
-            >
-              <MessageSquare className="w-5 h-5" />
-              <span>WhatsApp Us</span>
-            </a>
+            <div className="grid grid-cols-2 sm:flex items-center gap-2.5 sm:gap-4 w-full sm:w-auto">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-heading font-bold text-xs sm:text-sm min-h-[48px] px-3.5 sm:px-6 py-3 rounded-xl shadow-lg shadow-emerald-600/25 active:scale-98 transition-all duration-200"
+              >
+                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                <span>WhatsApp Us</span>
+              </a>
 
-            {business.phone ? (
-              <a
-                href={`tel:${business.phone}`}
-                className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/15 text-white border border-white/20 font-heading font-semibold text-base px-6 py-3.5 rounded-xl backdrop-blur-sm active:scale-95 transition-all duration-200"
-              >
-                <Phone className="w-5 h-5 text-orange-400" />
-                <span>Call Now</span>
-              </a>
-            ) : (
-              <a
-                href="#contact"
-                className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/15 text-white border border-white/20 font-heading font-semibold text-base px-6 py-3.5 rounded-xl backdrop-blur-sm active:scale-95 transition-all duration-200"
-              >
-                <Phone className="w-5 h-5 text-orange-400" />
-                <span>Contact Site</span>
-              </a>
-            )}
+              {business.phone ? (
+                <a
+                  href={`tel:${business.phone}`}
+                  className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 font-heading font-semibold text-xs sm:text-sm min-h-[48px] px-3.5 sm:px-6 py-3 rounded-xl backdrop-blur-sm active:scale-98 transition-all duration-200"
+                >
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400 shrink-0" />
+                  <span>Call Now</span>
+                </a>
+              ) : (
+                <a
+                  href="#contact"
+                  className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 font-heading font-semibold text-xs sm:text-sm min-h-[48px] px-3.5 sm:px-6 py-3 rounded-xl backdrop-blur-sm active:scale-98 transition-all duration-200"
+                >
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400 shrink-0" />
+                  <span>Contact Site</span>
+                </a>
+              )}
+            </div>
           </motion.div>
 
           {/* Trust Indicators Strip */}
@@ -110,7 +112,7 @@ export default function Hero({ onQuoteClick }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4"
+            className="pt-5 sm:pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"
           >
             {[
               { icon: ShieldCheck, text: "Quality Focused" },
@@ -120,11 +122,11 @@ export default function Hero({ onQuoteClick }) {
             ].map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={index} className="flex items-center gap-2.5 text-slate-300">
-                  <div className="w-7 h-7 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 shrink-0">
-                    <Icon className="w-3.5 h-3.5" />
+                <div key={index} className="flex items-center gap-2 text-slate-300">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 shrink-0">
+                    <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </div>
-                  <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
+                  <span className="text-[11px] sm:text-sm font-semibold tracking-wide text-slate-200 truncate">
                     {item.text}
                   </span>
                 </div>

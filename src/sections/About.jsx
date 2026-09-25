@@ -24,13 +24,13 @@ export default function About({ onQuoteClick }) {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-[#14171d] relative overflow-hidden">
+    <section id="about" className="py-14 sm:py-20 md:py-28 bg-[#14171d] relative overflow-hidden">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           
           {/* Left Column: AI Photorealistic Batching Plant Image */}
           <motion.div
@@ -44,21 +44,21 @@ export default function About({ onQuoteClick }) {
               <img
                 src={images.about}
                 alt="Modern RMC Batching Plant with silos and transit mixers"
-                className="w-full h-[380px] sm:h-[450px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[280px] sm:h-[400px] lg:h-[450px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
               
               {/* Overlay Badge */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#181c24]/90 backdrop-blur-md border border-white/10 shadow-lg">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 shrink-0">
-                    <Truck className="w-5 h-5" />
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 p-3 sm:p-4 rounded-xl bg-[#181c24]/90 backdrop-blur-md border border-white/10 shadow-lg">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 shrink-0">
+                    <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <div>
-                    <h4 className="font-heading font-bold text-white text-sm">
+                  <div className="min-w-0">
+                    <h4 className="font-heading font-bold text-white text-xs sm:text-sm truncate sm:overflow-visible">
                       Batching & Logistics Infrastructure
                     </h4>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-[11px] sm:text-xs text-slate-400 line-clamp-1 sm:line-clamp-2">
                       Located strategically near Wagholi & Lonikand for rapid transit across Pune
                     </p>
                   </div>
@@ -67,8 +67,8 @@ export default function About({ onQuoteClick }) {
             </div>
 
             {/* Decorative Corner Element */}
-            <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-orange-500/60 rounded-tl-xl pointer-events-none" />
-            <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-orange-500/60 rounded-br-xl pointer-events-none" />
+            <div className="hidden sm:block absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-orange-500/60 rounded-tl-xl pointer-events-none" />
+            <div className="hidden sm:block absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-orange-500/60 rounded-br-xl pointer-events-none" />
           </motion.div>
 
           {/* Right Column: About Content */}
@@ -85,21 +85,21 @@ export default function About({ onQuoteClick }) {
                 <span>About Walunj Brother's RMC</span>
               </div>
               
-              <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white tracking-tight leading-tight">
+              <h2 className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl text-white tracking-tight leading-tight">
                 Building Strong Foundations with Reliable RMC
               </h2>
             </div>
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
+            <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
               Walunj Brother's RMC provides ready-mix concrete supply and transportation for construction requirements. Our focus is on reliable supply, convenient site delivery and professional service for construction projects.
             </p>
 
             {/* Core Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
               {pillars.map((pillar, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-orange-500/30 transition-all duration-200"
+                  className="p-3.5 sm:p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-orange-500/30 transition-all duration-200"
                 >
                   <div className="flex items-center gap-2.5 mb-1.5">
                     <CheckCircle2 className="w-4 h-4 text-orange-400 shrink-0" />
@@ -115,10 +115,10 @@ export default function About({ onQuoteClick }) {
             </div>
 
             {/* CTAs */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <button
                 onClick={onQuoteClick}
-                className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-heading font-bold text-sm px-6 py-3 rounded-xl shadow-lg shadow-orange-500/20 active:scale-95 transition-all"
+                className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-heading font-bold text-sm min-h-[46px] px-6 py-3 rounded-xl shadow-lg shadow-orange-500/20 active:scale-98 transition-all"
               >
                 <span>Request Concrete Quotation</span>
                 <ArrowRight className="w-4 h-4" />
@@ -126,7 +126,7 @@ export default function About({ onQuoteClick }) {
 
               <a
                 href="#services"
-                className="text-sm font-semibold text-slate-300 hover:text-orange-400 px-4 py-3 rounded-xl border border-white/10 hover:border-white/20 transition-colors"
+                className="flex items-center justify-center text-sm font-semibold text-slate-300 hover:text-orange-400 min-h-[46px] px-4 py-3 rounded-xl border border-white/10 hover:border-white/20 transition-colors text-center"
               >
                 Explore Services
               </a>
