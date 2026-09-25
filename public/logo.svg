@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wbLogoBorder" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#fb923c" />
+      <stop offset="50%" stopColor="#ea580c" />
+      <stop offset="100%" stopColor="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="wbLogoBg" x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#1e2430" />
+      <stop offset="100%" stopColor="#0f131a" />
+    </linearGradient>
+    <linearGradient id="wbDrumGrad" x1="28" y1="28" x2="72" y2="65" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#ff7a1a" />
+      <stop offset="55%" stopColor="#ea580c" />
+      <stop offset="100%" stopColor="#c2410c" />
+    </linearGradient>
+    <linearGradient id="wbBeamGrad" x1="15" y1="35" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#f8fafc" />
+      <stop offset="45%" stopColor="#cbd5e1" />
+      <stop offset="100%" stopColor="#94a3b8" />
+    </linearGradient>
+    <linearGradient id="wbGoldAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stopColor="#fde047" />
+      <stop offset="100%" stopColor="#f59e0b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Emblem Group -->
+  <g transform="translate(6, 0)">
+    <!-- Hexagonal Industrial Base Shield -->
+    <polygon
+      points="50,4 88,24 88,76 50,96 12,76 12,24"
+      fill="url(#wbLogoBg)"
+      stroke="url(#wbLogoBorder)"
+      stroke-width="3.5"
+      stroke-linejoin="round"
+    />
+
+    <!-- Inner Hexagon Frame Accent -->
+    <polygon
+      points="50,11 82,29 82,71 50,89 18,71 18,29"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="1.2"
+      stroke-opacity="0.12"
+      stroke-linejoin="round"
+    />
+
+    <!-- Transit Mixer Drum Silhouette -->
+    <path
+      d="M32 40 L45 28 L62 31 L68 45 L56 58 L38 55 Z"
+      fill="url(#wbDrumGrad)"
+    />
+
+    <!-- Drum Spiral Mixing Blades -->
+    <path
+      d="M37 36 Q49 34 58 44 Q50 52 40 48"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.9"
+    />
+    <path
+      d="M48 30 Q58 35 64 42"
+      fill="none"
+      stroke="#fde047"
+      stroke-width="2"
+      stroke-linecap="round"
+      opacity="0.85"
+    />
+
+    <!-- Heavy Structural 'W' Foundation Wings -->
+    <path
+      d="M20 33 L29 33 L37 66 L44 48 L37 48 L32 37 L20 33 Z"
+      fill="url(#wbBeamGrad)"
+    />
+    <path
+      d="M80 33 L71 33 L63 66 L56 48 L63 48 L68 37 L80 33 Z"
+      fill="url(#wbBeamGrad)"
+    />
+    <path
+      d="M36 67 L50 83 L64 67 L57 67 L50 75 L43 67 Z"
+      fill="url(#wbLogoBorder)"
+    />
+
+    <!-- Top Chevron -->
+    <path
+      d="M44 19 L50 14 L56 19 L50 22 Z"
+      fill="url(#wbGoldAccent)"
+    />
+
+    <!-- Aggregates -->
+    <circle cx="50" cy="88" r="2.5" fill="#f59e0b" />
+    <circle cx="43" cy="85" r="2" fill="#94a3b8" />
+    <circle cx="57" cy="85" r="2" fill="#94a3b8" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(118, 0)" font-family="system-ui, -apple-system, sans-serif">
+    <!-- Main Company Name -->
+    <text x="0" y="48" font-size="34" font-weight="900" fill="#ffffff" letter-spacing="-0.5">WALUNJ <tspan fill="#f97316">BROTHER'S</tspan></text>
+    
+    <!-- Tagline Badge & Description -->
+    <rect x="0" y="62" width="46" height="20" rx="4" fill="#f97316" fill-opacity="0.15" stroke="#f97316" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="23" y="76" font-size="11" font-weight="900" fill="#fb923c" text-anchor="middle" letter-spacing="1">RMC</text>
+    
+    <text x="56" y="76" font-size="13" font-weight="700" fill="#94a3b8" letter-spacing="2">READY-MIX CONCRETE</text>
+    <circle cx="236" cy="72" r="2" fill="#ea580c"/>
+    <text x="246" y="76" font-size="12" font-weight="700" fill="#ea580c" letter-spacing="1.5">PUNE</text>
+  </g>
+</svg>

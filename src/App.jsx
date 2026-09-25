@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import Preloader from './components/Preloader';
 import Hero from './sections/Hero';
 import TrustStrip from './sections/TrustStrip';
 import About from './sections/About';
@@ -48,6 +49,9 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#121417] text-slate-100 flex flex-col selection:bg-orange-500 selection:text-white w-full overflow-x-hidden">
+      {/* Intro Preloader */}
+      <Preloader />
+
       {/* Sticky Navigation */}
       <Navbar onQuoteClick={scrollToQuote} />
 

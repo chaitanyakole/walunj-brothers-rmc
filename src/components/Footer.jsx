@@ -1,6 +1,7 @@
 import React from 'react';
-import { HardHat, MapPin, Mail, Phone, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { MapPin, Mail, Phone, MessageSquare, ArrowUpRight } from 'lucide-react';
 import InstagramIcon from './InstagramIcon';
+import BrandLogo from './BrandLogo';
 import { business } from '../config/business';
 import { getWhatsAppUrl } from '../utils/whatsapp';
 
@@ -21,19 +22,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           {/* Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500">
-                <HardHat className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="font-heading font-extrabold text-lg text-white block uppercase tracking-wider">
-                  Walunj Brother's RMC
-                </span>
-                <span className="text-[11px] text-orange-400 font-bold uppercase tracking-widest">
-                  Ready-Mix Concrete Supplier
-                </span>
-              </div>
-            </div>
+            <BrandLogo size="md" />
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               Reliable Ready-Mix Concrete supply and transportation for construction projects across Pune and surrounding areas.

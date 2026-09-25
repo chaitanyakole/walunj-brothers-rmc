@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, MessageSquare, HardHat, FileText, ChevronRight } from 'lucide-react';
+import { Menu, X, Phone, MessageSquare, FileText, ChevronRight } from 'lucide-react';
 import { business } from '../config/business';
 import { getWhatsAppUrl } from '../utils/whatsapp';
+import BrandLogo from './BrandLogo';
 
 export default function Navbar({ onQuoteClick }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,7 +63,7 @@ export default function Navbar({ onQuoteClick }) {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
             ? 'bg-[#121418]/95 backdrop-blur-md py-3 shadow-xl shadow-black/30 border-b border-white/10'
-            : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5'
+            : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4 sm:py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,20 +72,10 @@ export default function Navbar({ onQuoteClick }) {
             <a
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero')}
-              className="flex items-center gap-2.5 sm:gap-3 group min-w-0"
+              className="group min-w-0"
               aria-label="Walunj Brother's RMC Home"
             >
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 shadow-inner group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300 shrink-0">
-                <HardHat className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
-              <div className="flex flex-col min-w-0">
-                <span className="font-heading font-extrabold text-sm sm:text-base lg:text-lg tracking-wider text-white leading-tight uppercase group-hover:text-orange-400 transition-colors truncate">
-                  Walunj Brother's
-                </span>
-                <span className="text-[9px] sm:text-xs tracking-[0.16em] sm:tracking-[0.22em] text-orange-500 font-bold uppercase truncate">
-                  Ready-Mix Concrete
-                </span>
-              </div>
+              <BrandLogo size="md" />
             </a>
 
             {/* Desktop Navigation */}
@@ -178,19 +169,7 @@ export default function Navbar({ onQuoteClick }) {
             >
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500">
-                      <HardHat className="w-5 h-5" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="font-heading font-extrabold text-sm text-white">
-                        WALUNJ BROTHER'S
-                      </span>
-                      <span className="text-[10px] text-orange-500 font-semibold tracking-wider">
-                        READY-MIX CONCRETE
-                      </span>
-                    </div>
-                  </div>
+                  <BrandLogo size="sm" />
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-white rounded-lg hover:bg-white/5 active:scale-95"
