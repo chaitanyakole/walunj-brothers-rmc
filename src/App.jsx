@@ -50,7 +50,7 @@ function AppContent() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#f8fafc] dark:bg-[#0e1117] text-slate-800 dark:text-slate-200 flex flex-col selection:bg-amber-500 selection:text-white dark:selection:text-slate-950 w-full overflow-x-hidden transition-colors duration-300">
+    <div className="relative min-h-screen bg-[#f8fafc] dark:bg-[#0e1117] text-slate-800 dark:text-slate-200 flex flex-col selection:bg-amber-500 selection:text-white dark:selection:text-slate-950 w-full overflow-x-hidden">
       {/* Intro Preloader */}
       <Preloader />
 

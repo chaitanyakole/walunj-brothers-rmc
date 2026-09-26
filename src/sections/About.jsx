@@ -24,7 +24,7 @@ export default function About({ onQuoteClick }) {
   ];
 
   return (
-    <section id="about" className="py-14 sm:py-20 md:py-28 bg-[#f8fafc] dark:bg-[#0e1117] relative overflow-hidden border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
+    <section id="about" className="py-14 sm:py-20 md:py-28 bg-[#f8fafc] dark:bg-[#0e1117] relative overflow-hidden border-b border-slate-200 dark:border-white/10">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -51,14 +51,14 @@ export default function About({ onQuoteClick }) {
               {/* Overlay Badge */}
               <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 p-3 sm:p-4 rounded-xl bg-white/95 dark:bg-[#181c24]/90 backdrop-blur-md border border-slate-200 dark:border-white/10 shadow-lg">
                 <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-blue-50 dark:bg-orange-500/20 border border-blue-200 dark:border-orange-500/30 flex items-center justify-center text-blue-700 dark:text-orange-400 shrink-0">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-blue-50 dark:bg-amber-500/20 border border-blue-200 dark:border-amber-500/30 flex items-center justify-center text-blue-700 dark:text-amber-400 shrink-0">
                     <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="font-heading font-bold text-slate-900 dark:text-white text-xs sm:text-sm truncate sm:overflow-visible">
+                    <p className="font-heading font-bold text-slate-900 dark:text-white text-xs sm:text-sm truncate sm:overflow-visible">
                       Batching & Logistics Infrastructure
-                    </h4>
-                    <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 line-clamp-1 sm:line-clamp-2">
+                    </p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-1 sm:line-clamp-2">
                       Located strategically near Wagholi & Lonikand for rapid transit across Pune
                     </p>
                   </div>
@@ -67,8 +67,8 @@ export default function About({ onQuoteClick }) {
             </div>
 
             {/* Decorative Corner Element */}
-            <div className="hidden sm:block absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-blue-600/50 dark:border-orange-500/60 rounded-tl-xl pointer-events-none" />
-            <div className="hidden sm:block absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-blue-600/50 dark:border-orange-500/60 rounded-br-xl pointer-events-none" />
+            <div className="hidden sm:block absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-blue-600/50 dark:border-amber-500/60 rounded-tl-xl pointer-events-none" />
+            <div className="hidden sm:block absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-blue-600/50 dark:border-amber-500/60 rounded-br-xl pointer-events-none" />
           </motion.div>
 
           {/* Right Column: About Content */}
@@ -80,7 +80,7 @@ export default function About({ onQuoteClick }) {
             className="lg:col-span-6 space-y-6"
           >
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-orange-500/10 border border-blue-200 dark:border-orange-500/20 text-blue-800 dark:text-orange-400 text-xs font-bold uppercase tracking-widest mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-amber-500/10 border border-blue-200 dark:border-amber-500/20 text-blue-800 dark:text-amber-400 text-xs font-bold uppercase tracking-widest mb-3">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>About Walunj Brother's RMC</span>
               </div>
@@ -99,10 +99,10 @@ export default function About({ onQuoteClick }) {
               {pillars.map((pillar, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 hover:border-blue-400 dark:hover:border-orange-500/30 hover:shadow-md transition-all duration-200"
+                  className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 hover:border-blue-400 dark:hover:border-amber-500/30 hover:shadow-md transition-all duration-200"
                 >
                   <div className="flex items-center gap-2.5 mb-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-blue-700 dark:text-orange-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-700 dark:text-amber-400 shrink-0" />
                     <h3 className="font-heading font-bold text-sm text-slate-900 dark:text-white">
                       {pillar.title}
                     </h3>
@@ -118,7 +118,7 @@ export default function About({ onQuoteClick }) {
             <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <button
                 onClick={onQuoteClick}
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-heading font-bold text-sm min-h-[46px] px-6 py-3 rounded-xl shadow-md shadow-amber-500/20 active:scale-98 transition-all"
+                className="btn-primary"
               >
                 <span>Request Concrete Quotation</span>
                 <ArrowRight className="w-4 h-4" />
@@ -126,7 +126,7 @@ export default function About({ onQuoteClick }) {
 
               <a
                 href="#services"
-                className="flex items-center justify-center text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-orange-400 min-h-[46px] px-4 py-3 rounded-xl border border-slate-300 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors text-center"
+                className="btn-outline"
               >
                 Explore Services
               </a>

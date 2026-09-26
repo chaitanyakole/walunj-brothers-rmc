@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, MessageSquare, Phone, ShieldCheck, Clock, Truck, HardHat, ChevronDown } from 'lucide-react';
+import { FileText, MessageSquare, Phone, ShieldCheck, Clock, Truck, HardHat, ChevronDown, ArrowRight } from 'lucide-react';
 import { business } from '../config/business';
 import { images } from '../data/images';
 import { getWhatsAppUrl } from '../utils/whatsapp';
@@ -82,38 +82,38 @@ export default function Hero({ onQuoteClick }) {
             >
               <button
                 onClick={onQuoteClick}
-                className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-500 via-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-heading font-extrabold text-sm sm:text-base min-h-[48px] px-7 py-3.5 rounded-xl shadow-lg shadow-amber-500/25 active:scale-98 transition-all duration-200"
+                className="btn-primary w-full sm:w-auto"
               >
                 <FileText className="w-5 h-5 text-slate-950" />
                 <span>Calculate & Get Quote</span>
               </button>
 
-              <div className="grid grid-cols-2 sm:flex items-center gap-2.5 sm:gap-4 w-full sm:w-auto">
+              <div className="grid grid-cols-2 sm:flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-bold text-xs sm:text-sm min-h-[48px] px-3.5 sm:px-6 py-3 rounded-xl shadow-md shadow-emerald-600/20 active:scale-98 transition-all duration-200"
+                  className="btn-outline gap-2"
                 >
-                  <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-                  <span>WhatsApp Us</span>
+                  <MessageSquare className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>WhatsApp</span>
                 </a>
 
                 {business.phone ? (
                   <a
                     href={`tel:${business.phone}`}
-                    className="flex items-center justify-center gap-2 bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-white/10 font-heading font-semibold text-xs sm:text-sm min-h-[48px] px-3.5 sm:px-6 py-3 rounded-xl shadow-xs active:scale-98 transition-all duration-200"
+                    className="btn-outline gap-2"
                   >
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 shrink-0" />
+                    <Phone className="w-4 h-4 text-blue-700 dark:text-amber-400 shrink-0" />
                     <span>Call Desk</span>
                   </a>
                 ) : (
                   <a
                     href="#contact"
-                    className="flex items-center justify-center gap-2 bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-white/10 font-heading font-semibold text-xs sm:text-sm min-h-[48px] px-3.5 sm:px-6 py-3 rounded-xl shadow-xs active:scale-98 transition-all duration-200"
+                    className="btn-outline gap-2"
                   >
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 shrink-0" />
-                    <span>Contact Site</span>
+                    <Phone className="w-4 h-4 text-blue-700 dark:text-amber-400 shrink-0" />
+                    <span>Contact</span>
                   </a>
                 )}
               </div>
@@ -136,9 +136,9 @@ export default function Hero({ onQuoteClick }) {
                 return (
                   <div key={index} className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-blue-50 dark:bg-amber-500/10 border border-blue-200 dark:border-amber-500/20 flex items-center justify-center text-blue-700 dark:text-amber-400 shrink-0">
-                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      <Icon className="w-3.5 h-3.5" />
                     </div>
-                    <span className="text-[11px] sm:text-xs font-semibold tracking-wide text-slate-800 dark:text-slate-300 truncate">
+                    <span className="text-xs font-semibold tracking-normal text-slate-800 dark:text-slate-200">
                       {item.text}
                     </span>
                   </div>
@@ -154,61 +154,61 @@ export default function Hero({ onQuoteClick }) {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-5"
           >
-            <div className="relative rounded-3xl bg-white/90 dark:bg-[#131720]/90 backdrop-blur-md border border-slate-200/90 dark:border-white/10 p-5 sm:p-7 shadow-2xl shadow-blue-900/10 dark:shadow-black/60 overflow-hidden">
+            <div className="relative rounded-2xl bg-white/85 dark:bg-[#131720]/85 backdrop-blur-sm border border-slate-200/80 dark:border-white/10 p-5 sm:p-6 shadow-xl shadow-blue-900/5 dark:shadow-black/50 overflow-hidden">
               {/* Background ambient glow */}
-              <div className="absolute top-0 right-0 w-44 h-44 bg-blue-500/10 dark:bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/5 dark:bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
 
               {/* Card Header: Live Dispatch Queue */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 dark:border-white/10 mb-4">
+              <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/80 dark:border-white/10 mb-4">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-amber-500/10 border border-blue-200 dark:border-amber-500/20 flex items-center justify-center text-blue-700 dark:text-amber-400 shrink-0">
-                    <Truck className="w-5 h-5" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-amber-500/10 border border-blue-200 dark:border-amber-500/20 flex items-center justify-center text-blue-700 dark:text-amber-400 shrink-0">
+                    <Truck className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-extrabold text-sm sm:text-base text-slate-900 dark:text-white leading-tight">
+                    <p className="font-heading font-bold text-sm sm:text-base text-slate-900 dark:text-white leading-tight">
                       Batching Dispatch Desk
-                    </h3>
-                    <p className="text-[10px] uppercase font-bold tracking-wider text-blue-700 dark:text-amber-400">
+                    </p>
+                    <p className="text-xs font-semibold text-blue-700 dark:text-amber-400">
                       Wagholi Central Terminal
                     </p>
                   </div>
                 </div>
 
-                <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300/80 dark:border-emerald-700/60">
+                <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300/80 dark:border-emerald-700/60">
                   Ready
                 </span>
               </div>
 
               {/* Live Spec Metrics */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="p-3 rounded-2xl bg-slate-50/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5">
-                  <span className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold block mb-1">
+                <div className="p-3 rounded-xl bg-slate-50/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5">
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-bold block mb-1">
                     Next Pour Slot
                   </span>
-                  <p className="font-heading font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">
+                  <p className="font-heading font-bold text-sm text-slate-900 dark:text-white">
                     Available Today
                   </p>
-                  <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold block mt-0.5">
+                  <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold block mt-0.5">
                     Express Scheduling
                   </span>
                 </div>
 
-                <div className="p-3 rounded-2xl bg-slate-50/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5">
-                  <span className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold block mb-1">
+                <div className="p-3 rounded-xl bg-slate-50/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5">
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-bold block mb-1">
                     Batching Speed
                   </span>
-                  <p className="font-heading font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">
+                  <p className="font-heading font-bold text-sm text-slate-900 dark:text-white">
                     6.5 Min / 6m³
                   </p>
-                  <span className="text-[10px] text-blue-600 dark:text-amber-400 font-semibold block mt-0.5">
+                  <span className="text-xs text-blue-600 dark:text-amber-400 font-semibold block mt-0.5">
                     Continuous Weighing
                   </span>
                 </div>
               </div>
 
               {/* Quick Interactive Grade Strength Peek */}
-              <div className="pt-2 pb-3">
-                <span className="text-[11px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider block mb-2">
+              <div className="pt-1 pb-3">
+                <span className="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-2">
                   Popular Standard Mix Grades:
                 </span>
                 <div className="grid grid-cols-4 gap-2">
@@ -227,7 +227,7 @@ export default function Hero({ onQuoteClick }) {
                       <span className="font-heading font-black text-sm text-slate-900 dark:text-white group-hover/chip:text-blue-700 dark:group-hover/chip:text-amber-400 block leading-tight">
                         {item.grade}
                       </span>
-                      <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 block mt-0.5">
+                      <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 block mt-0.5">
                         {item.mpa}
                       </span>
                     </button>
@@ -236,16 +236,17 @@ export default function Hero({ onQuoteClick }) {
               </div>
 
               {/* Bottom Quick Callout */}
-              <div className="p-3 rounded-xl bg-blue-50/70 dark:bg-white/[0.02] border border-blue-200/80 dark:border-white/5 flex items-center justify-between mt-2">
-                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+              <div className="p-3 rounded-xl bg-blue-50/70 dark:bg-white/[0.02] border border-blue-200/80 dark:border-white/5 flex items-center justify-between mt-2 gap-2">
+                <span className="text-xs font-medium text-slate-700 dark:text-slate-300">
                   Concrete pumps (32m & 36m) deployed on order
                 </span>
                 <button
                   type="button"
                   onClick={onQuoteClick}
-                  className="text-xs font-extrabold text-blue-700 dark:text-amber-400 hover:underline shrink-0 ml-2"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-amber-500 dark:hover:bg-amber-600 text-white dark:text-slate-950 font-heading font-bold text-xs shadow-xs hover:shadow-sm active:scale-95 transition-all shrink-0 cursor-pointer"
                 >
-                  Book Slot →
+                  <span>Book Slot</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>

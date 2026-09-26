@@ -38,7 +38,7 @@ export function ThemeProvider({ children }) {
         if (saved === THEMES.INDUSTRIAL) {
           return THEMES.INDUSTRIAL;
         }
-      } catch (e) {
+      } catch {
         // LocalStorage access might fail in private browsing
       }
     }
@@ -48,6 +48,10 @@ export function ThemeProvider({ children }) {
 
   const applyTheme = (targetTheme) => {
     const root = document.documentElement;
+
+    // 1. Temporarily freeze all transitions so all text and background colors change instantaneously (0ms delay)
+    root.classList.add('disable-transitions');
+
     root.setAttribute('data-theme', targetTheme);
 
     if (targetTheme === THEMES.INDUSTRIAL) {
@@ -62,9 +66,19 @@ export function ThemeProvider({ children }) {
 
     try {
       localStorage.setItem('wb_rmc_theme', targetTheme);
-    } catch (e) {
+    } catch {
       // LocalStorage access might fail in private browsing
     }
+
+    // 2. Force synchronous DOM reflow so browser commits the color swap immediately in the same paint cycle
+    void root.offsetHeight;
+
+    // 3. Re-enable interactive hover transitions on the next animation frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        root.classList.remove('disable-transitions');
+      });
+    });
   };
 
   useEffect(() => {

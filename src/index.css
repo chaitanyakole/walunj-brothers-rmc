@@ -34,19 +34,30 @@ html {
   background-color: #f8fafc;
 }
 
+/* Zero-lag theme switching: instantly snap all text and background colors with 0ms delay */
+html.disable-transitions,
+html.disable-transitions *,
+html.disable-transitions *::before,
+html.disable-transitions *::after {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+
 body {
   overflow-x: hidden;
   width: 100%;
   position: relative;
   background-color: #f8fafc;
-  color: #1e293b;
+  color: #0f172a;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: 'Outfit', sans-serif;
   overflow-wrap: break-word;
   word-break: break-word;
-  color: #0f172a;
 }
 
 /* Prevent unwanted mobile horizontal shake/scroll */
@@ -134,18 +145,15 @@ html.dark #root {
   background-color: #0e1117;
 }
 
-html[data-theme="industrial"] h1,
-html[data-theme="industrial"] h2,
-html[data-theme="industrial"] h3,
-html[data-theme="industrial"] h4,
-html[data-theme="industrial"] h5,
-html[data-theme="industrial"] h6,
-html.dark h1,
-html.dark h2,
-html.dark h3,
-html.dark h4,
-html.dark h5,
-html.dark h6 {
+/* Form Inputs & Select option theme styling */
+select option {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+html[data-theme="industrial"] select option,
+html.dark select option {
+  background-color: #13161c;
   color: #f8fafc;
 }
 
@@ -171,9 +179,11 @@ html.dark .bg-blueprint-grid {
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
-/* Smooth transitions */
+/* Smooth interactive micro-animations without text color transition lag */
 button, a {
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-property: transform, opacity, box-shadow;
+  transition-duration: 0.15s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Remove default number spin buttons for clean input */
@@ -182,3 +192,241 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+/* ==========================================================================
+   Design System Utilities (Usability Heuristics & Consistency Standards)
+   ========================================================================== */
+
+/* 1. Global Button Hierarchy (Issues 4 & 30) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 0.875rem;
+  min-height: 48px;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.75rem;
+  background-image: linear-gradient(to right, #f59e0b, #d97706);
+  color: #020617;
+  box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-image: linear-gradient(to right, #d97706, #b45309);
+  transform: translateY(-1px);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  min-height: 46px;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.75rem;
+  background-color: #0f4c81;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: #0c3b64;
+}
+html[data-theme="industrial"] .btn-secondary,
+html.dark .btn-secondary {
+  background-color: #1e2430;
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  min-height: 44px;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  background-color: transparent;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+html[data-theme="industrial"] .btn-outline,
+html.dark .btn-outline {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+}
+html[data-theme="industrial"] .btn-outline:hover,
+html.dark .btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  min-height: 40px;
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: #0f4c81;
+  border: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  background-color: rgba(15, 76, 129, 0.08);
+  color: #0c3b64;
+}
+html[data-theme="industrial"] .btn-ghost,
+html.dark .btn-ghost {
+  color: #f59e0b;
+}
+html[data-theme="industrial"] .btn-ghost:hover,
+html.dark .btn-ghost:hover {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  min-height: 36px;
+  padding: 0.25rem 0.875rem;
+  border-radius: 9999px;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-pill:hover {
+  background-color: #e2e8f0;
+}
+html[data-theme="industrial"] .btn-pill,
+html.dark .btn-pill {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+}
+html[data-theme="industrial"] .btn-pill:hover,
+html.dark .btn-pill:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 2. Cohesive Typography Color System (Issue 1: Consolidate to <= 12 text colors) */
+/* Light Mode Harmonization */
+.text-slate-950, .text-slate-900, .text-slate-850, .text-slate-800 {
+  color: #0f172a;
+}
+.text-slate-700, .text-slate-600 {
+  color: #475569;
+}
+.text-slate-500, .text-slate-400 {
+  color: #64748b;
+}
+.text-blue-900, .text-blue-800, .text-blue-700, .text-blue-600, .text-\[\#0f4c81\] {
+  color: #0f4c81;
+}
+.text-amber-900, .text-amber-800, .text-amber-700, .text-amber-600, .text-amber-500 {
+  color: #d97706;
+}
+.text-emerald-900, .text-emerald-800, .text-emerald-700, .text-emerald-600 {
+  color: #059669;
+}
+
+/* Dark Mode Harmonization */
+html[data-theme="industrial"] .text-slate-950,
+html[data-theme="industrial"] .text-slate-900,
+html[data-theme="industrial"] .text-slate-850,
+html[data-theme="industrial"] .text-slate-800,
+html.dark .text-slate-950,
+html.dark .text-slate-900,
+html.dark .text-slate-850,
+html.dark .text-slate-800 {
+  color: #f8fafc;
+}
+
+html[data-theme="industrial"] .text-slate-700,
+html[data-theme="industrial"] .text-slate-600,
+html[data-theme="industrial"] .text-slate-500,
+html[data-theme="industrial"] .text-slate-400,
+html.dark .text-slate-700,
+html.dark .text-slate-600,
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: #94a3b8;
+}
+
+html[data-theme="industrial"] .text-blue-900,
+html[data-theme="industrial"] .text-blue-800,
+html[data-theme="industrial"] .text-blue-700,
+html[data-theme="industrial"] .text-blue-600,
+html[data-theme="industrial"] .text-\[\#0f4c81\],
+html.dark .text-blue-900,
+html.dark .text-blue-800,
+html.dark .text-blue-700,
+html.dark .text-blue-600,
+html.dark .text-\[\#0f4c81\] {
+  color: #60a5fa;
+}
+
+html[data-theme="industrial"] .text-amber-900,
+html[data-theme="industrial"] .text-amber-800,
+html[data-theme="industrial"] .text-amber-700,
+html[data-theme="industrial"] .text-amber-600,
+html[data-theme="industrial"] .text-amber-500,
+html.dark .text-amber-900,
+html.dark .text-amber-800,
+html.dark .text-amber-700,
+html.dark .text-amber-600,
+html.dark .text-amber-500 {
+  color: #f59e0b;
+}
+
+html[data-theme="industrial"] .text-emerald-900,
+html[data-theme="industrial"] .text-emerald-800,
+html[data-theme="industrial"] .text-emerald-700,
+html[data-theme="industrial"] .text-emerald-600,
+html.dark .text-emerald-900,
+html.dark .text-emerald-800,
+html.dark .text-emerald-700,
+html.dark .text-emerald-600 {
+  color: #34d399;
+}
+
+/* 3. Accessible Minimum Type Scale Rule */
+small, .text-legal, [class*="text-[9px]"], [class*="text-[10px]"], [class*="text-[11px]"] {
+  font-size: 0.75rem !important; /* Min 12px for universal legibility */
+  line-height: 1.4 !important;
+}
+
+

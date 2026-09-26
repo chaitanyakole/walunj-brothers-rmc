@@ -71,7 +71,7 @@ export default function Contact() {
                 <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white">
                   {business.name}
                 </h3>
-                <p className="text-xs uppercase tracking-wider text-blue-700 dark:text-amber-400 font-bold mt-1">
+                <p className="text-xs text-blue-700 dark:text-amber-400 font-bold mt-1">
                   Ready-Mix Concrete Supplier
                 </p>
               </div>
@@ -171,7 +171,7 @@ export default function Contact() {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7 bg-white dark:bg-slate-900/90 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 p-5 sm:p-8 md:p-10 shadow-lg dark:shadow-none">
+          <div className="lg:col-span-7 bg-white dark:bg-slate-900/90 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 sm:p-8 md:p-10 shadow-lg dark:shadow-none">
             <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white mb-2">
               Send Us a Message
             </h3>
@@ -294,7 +294,7 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-heading font-extrabold text-sm min-h-[48px] py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 active:scale-98 transition-all"
+                    className="btn-primary w-full"
                   >
                     <Send className="w-4 h-4 text-slate-950" />
                     <span>Send Enquiry</span>

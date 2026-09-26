@@ -34,14 +34,14 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-14 sm:py-20 bg-[#f8fafc] border-t border-slate-200 relative overflow-hidden">
+    <section className="py-14 sm:py-20 bg-[#f8fafc] dark:bg-[#0e1117] border-t border-slate-200 dark:border-white/10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-amber-500/10 border border-blue-200 dark:border-amber-500/20 text-blue-800 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
             <MessageSquareQuote className="w-3.5 h-3.5" />
             <span>Client Feedback</span>
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-950">
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-950 dark:text-white">
             What Our Clients Say
           </h2>
         </div>
@@ -50,14 +50,14 @@ export default function Testimonials() {
           {verifiedTestimonials.map((review) => (
             <div
               key={review.id}
-              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm"
+              className="p-6 rounded-2xl bg-white dark:bg-[#181c24] border border-slate-200 dark:border-white/10 shadow-sm"
             >
-              <p className="text-slate-700 text-sm leading-relaxed mb-4 italic">
+              <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-4 italic">
                 "{review.comment}"
               </p>
               <div>
-                <p className="font-bold text-slate-900 text-sm">{review.clientName}</p>
-                <p className="text-xs text-blue-700 font-semibold">{review.project}</p>
+                <p className="font-bold text-slate-900 dark:text-white text-sm">{review.clientName}</p>
+                <p className="text-xs text-blue-700 dark:text-amber-400 font-semibold">{review.project}</p>
               </div>
             </div>
           ))}

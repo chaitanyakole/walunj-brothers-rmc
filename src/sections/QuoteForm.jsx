@@ -136,7 +136,7 @@ export default function QuoteForm({
   };
 
   return (
-    <section id="quote-section" className="py-14 sm:py-20 md:py-28 bg-[#f8fafc] dark:bg-[#0e1117] relative overflow-hidden border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
+    <section id="quote-section" className="py-14 sm:py-20 md:py-28 bg-[#f8fafc] dark:bg-[#0e1117] relative overflow-hidden border-b border-slate-200 dark:border-white/10">
       {/* Background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-500/5 dark:bg-orange-500/5 rounded-full blur-[140px] pointer-events-none" />
 
@@ -163,7 +163,7 @@ export default function QuoteForm({
         </div>
 
         {/* Card Form Container */}
-        <div id="direct-quote-form" className="bg-white dark:bg-[#181c24] rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-white/10 p-5 sm:p-8 md:p-10 shadow-lg relative">
+        <div id="direct-quote-form" className="bg-white dark:bg-[#181c24] rounded-2xl border border-slate-200 dark:border-white/10 p-5 sm:p-8 md:p-10 shadow-lg relative">
           <AnimatePresence mode="wait">
             {submitted ? (
               <motion.div
@@ -182,7 +182,7 @@ export default function QuoteForm({
                 </h3>
 
                 <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base max-w-lg mx-auto mb-6 leading-relaxed">
-                  Your enquiry for <strong className="text-blue-700 dark:text-orange-400">{formData.grade}</strong> concrete for your site at <strong className="text-slate-950 dark:text-white">{formData.location}</strong> has been logged.
+                  Your enquiry for <strong className="text-blue-700 dark:text-amber-400">{formData.grade}</strong> concrete for your site at <strong className="text-slate-950 dark:text-white">{formData.location}</strong> has been logged.
                 </p>
 
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#13161c] border border-slate-200 dark:border-white/10 max-w-md mx-auto mb-6 sm:mb-8 text-xs text-slate-600 dark:text-slate-300 text-left space-y-1.5 shadow-xs">
@@ -210,6 +210,29 @@ export default function QuoteForm({
               </motion.div>
             ) : (
               <form onSubmit={handleStandardSubmit} noValidate className="space-y-4 sm:space-y-6">
+                
+                {/* Step 2 Header & Linear Flow Connector */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-200 dark:border-white/10">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-7 h-7 rounded-full bg-blue-700 dark:bg-amber-500 text-white dark:text-slate-950 font-heading font-extrabold text-xs flex items-center justify-center shadow-xs">
+                      2
+                    </span>
+                    <div>
+                      <h3 className="font-heading font-bold text-base sm:text-lg text-slate-900 dark:text-white">
+                        Site & Dispatch Booking Details
+                      </h3>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                        {formData.quantity ? `Applying ${formData.quantity} m³ (${formData.grade}) from estimator` : 'Provide delivery location and grade for dispatch scheduling'}
+                      </p>
+                    </div>
+                  </div>
+                  {formData.quantity && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-800 dark:text-emerald-400 text-xs font-bold">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span>{formData.quantity} m³ Linked</span>
+                    </span>
+                  )}
+                </div>
                 
                 {/* Row 1: Name & Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -430,19 +453,19 @@ export default function QuoteForm({
                   {/* Primary Form Submit */}
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-heading font-extrabold text-sm min-h-[48px] py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2.5 shadow-md shadow-amber-500/20 active:scale-98 transition-all"
+                    className="w-full btn-primary min-h-[48px] py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2.5 shadow-md shadow-amber-500/20 active:scale-98 transition-all cursor-pointer"
                   >
-                    <FileText className="w-5 h-5 text-slate-950" />
-                    <span>Request a Quote</span>
+                    <FileText className="w-5 h-5" />
+                    <span>Request Official RMC Quote</span>
                   </button>
 
                   {/* Dynamic Pre-filled WhatsApp Button */}
                   <button
                     type="button"
                     onClick={handleWhatsAppSubmit}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-bold text-sm min-h-[48px] py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2.5 shadow-md shadow-emerald-600/20 active:scale-98 transition-all"
+                    className="w-full btn-outline min-h-[48px] py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2.5 active:scale-98 transition-all cursor-pointer bg-emerald-600/10 hover:bg-emerald-600/20 border-emerald-500/40 text-emerald-800 dark:text-emerald-300"
                   >
-                    <MessageSquare className="w-5 h-5" />
+                    <MessageSquare className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     <span>Send via WhatsApp</span>
                   </button>
                 </div>
@@ -452,7 +475,7 @@ export default function QuoteForm({
                     Prefer direct email? Send specs to{' '}
                     <a
                       href={getQuoteMailtoUrl(formData)}
-                      className="text-blue-700 dark:text-orange-400 font-semibold hover:underline"
+                      className="text-blue-700 dark:text-amber-400 font-semibold hover:underline"
                     >
                       {business.email}
                     </a>

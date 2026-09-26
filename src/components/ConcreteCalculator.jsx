@@ -396,12 +396,15 @@ export default function ConcreteCalculator({ onApplyEstimate }) {
   };
 
   return (
-    <div className="rounded-3xl bg-white dark:bg-[#12161f] border border-blue-200/90 dark:border-white/10 p-5 sm:p-7 md:p-9 shadow-xl shadow-blue-950/5 dark:shadow-black/50 transition-all duration-300">
+    <div className="rounded-2xl bg-white dark:bg-[#12161f] border border-blue-200/90 dark:border-white/10 p-5 sm:p-7 md:p-9 shadow-xl shadow-blue-950/5 dark:shadow-black/50 transition-all duration-300">
       
-      {/* Top Banner: Title & Verification Badges */}
+      {/* Top Banner: Step Indicator, Title & Verification Badges */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-white/10">
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-2">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-700 dark:bg-amber-500 text-white dark:text-slate-950 text-xs font-bold font-heading">
+              <span>Step 1</span>
+            </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-amber-500/10 border border-blue-200 dark:border-amber-500/20 text-[#0f4c81] dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
               <Calculator className="w-3.5 h-3.5" />
               <span>IS 456 & IS 4926 Compliant Estimator</span>
@@ -519,7 +522,7 @@ export default function ConcreteCalculator({ onApplyEstimate }) {
               </label>
             </div>
             
-            <span className="text-[11px] font-semibold text-blue-700 dark:text-amber-400 bg-blue-50 dark:bg-amber-500/10 px-2 py-0.5 rounded-md">
+            <span className="text-[11px] font-semibold text-blue-700 dark:text-amber-400 bg-blue-50 dark:bg-amber-500/10 px-2 py-0.5 rounded-lg">
               {activeStruct.recommendedUse}
             </span>
           </div>
@@ -578,18 +581,17 @@ export default function ConcreteCalculator({ onApplyEstimate }) {
             ))}
           </div>
 
-          {/* Formula Transparency Toggle */}
+          {/* Formula Transparency Toggle - Secondary informational link */}
           <div className="pt-2">
             <button
               type="button"
               onClick={() => setShowFormulaDetails(!showFormulaDetails)}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-blue-50/70 dark:bg-white/[0.03] border border-blue-200/60 dark:border-white/10 text-xs font-bold text-blue-900 dark:text-blue-300 hover:bg-blue-100/70 dark:hover:bg-white/[0.06] transition-all"
+              aria-expanded={showFormulaDetails}
+              className="inline-flex items-center gap-1.5 py-1.5 px-2 text-xs font-semibold text-blue-700 dark:text-amber-400 hover:text-blue-900 dark:hover:text-amber-300 hover:bg-blue-50/60 dark:hover:bg-white/5 rounded-lg transition-colors cursor-pointer"
             >
-              <span className="flex items-center gap-2">
-                <HelpCircle className="w-4 h-4 text-blue-700 dark:text-amber-400" />
-                <span>View Mathematical Proof & Working Calculation</span>
-              </span>
-              {showFormulaDetails ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              <HelpCircle className="w-3.5 h-3.5 shrink-0" />
+              <span>View Mathematical Proof & Working Calculation</span>
+              {showFormulaDetails ? <ChevronUp className="w-3.5 h-3.5 shrink-0" /> : <ChevronDown className="w-3.5 h-3.5 shrink-0" />}
             </button>
 
             <AnimatePresence>
@@ -722,15 +724,15 @@ export default function ConcreteCalculator({ onApplyEstimate }) {
             </div>
           </div>
 
-          {/* Action Button: Apply to Quote Form */}
+          {/* Action Button: Apply to Quote Form (Step 2 Connector) */}
           <div className="space-y-2">
             <button
               type="button"
               onClick={handleApply}
-              className="w-full bg-gradient-to-r from-amber-500 via-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-heading font-black text-xs sm:text-sm min-h-[46px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 active:scale-98 transition-all cursor-pointer"
+              className="w-full btn-primary min-h-[46px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg"
             >
-              <span>Apply {calculation.withWastageM3} m³ to Quote Form Below</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Apply {calculation.withWastageM3} m³ & Proceed to Booking (Step 2)</span>
+              <ArrowRight className="w-4 h-4 text-slate-950" />
             </button>
 
             <AnimatePresence>

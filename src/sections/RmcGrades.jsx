@@ -28,7 +28,7 @@ export default function RmcGrades({ onSelectGrade }) {
   };
 
   return (
-    <section id="grades" className="py-14 sm:py-20 md:py-28 bg-white dark:bg-[#0e1117] relative overflow-hidden border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
+    <section id="grades" className="py-14 sm:py-20 md:py-28 bg-white dark:bg-[#0e1117] relative overflow-hidden border-b border-slate-200 dark:border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
@@ -99,7 +99,7 @@ export default function RmcGrades({ onSelectGrade }) {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.35, delay: index * 0.04 }}
-                className={`relative rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1.5 ${
+                className={`relative rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1.5 ${
                   isHighlighted
                     ? 'bg-gradient-to-b from-blue-50/70 to-white dark:from-[#1d232f] dark:to-[#14171f] border-2 border-blue-600 dark:border-amber-500/80 shadow-xl shadow-blue-900/10 dark:shadow-black/60'
                     : 'bg-white dark:bg-[#14171f] border border-slate-200 dark:border-white/10 hover:border-blue-400 dark:hover:border-amber-500/50 shadow-sm hover:shadow-xl dark:shadow-black/50'
@@ -122,12 +122,12 @@ export default function RmcGrades({ onSelectGrade }) {
                   </div>
 
                   {/* Compressive Strength Visual Meter Gauge */}
-                  <div className="p-3 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5 mb-4">
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5 mb-4">
                     <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-                      <span className="text-slate-500 dark:text-slate-400 uppercase tracking-wider text-[10px]">
+                      <span className="text-slate-500 dark:text-slate-400 uppercase tracking-wider text-xs">
                         28-Day Strength
                       </span>
-                      <span className="text-[#0f4c81] dark:text-amber-400 font-mono font-black">
+                      <span className="text-blue-700 dark:text-amber-400 font-mono font-black">
                         {gradeItem.characteristicStrength}
                       </span>
                     </div>
@@ -139,10 +139,10 @@ export default function RmcGrades({ onSelectGrade }) {
                         whileInView={{ width: `${mpaPercent}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="h-full rounded-full bg-gradient-to-r from-[#0f4c81] via-blue-600 to-amber-500 dark:from-amber-500 dark:via-orange-500 dark:to-yellow-400"
+                        className="h-full rounded-full bg-gradient-to-r from-blue-700 via-blue-600 to-amber-500 dark:from-amber-500 dark:via-orange-500 dark:to-yellow-400"
                       />
                     </div>
-                    <div className="flex items-center justify-between text-[9px] font-mono text-slate-400 mt-1">
+                    <div className="flex items-center justify-between text-xs font-mono text-slate-400 mt-1">
                       <span>10 MPa</span>
                       <span>25 MPa</span>
                       <span>40 MPa</span>
@@ -154,7 +154,7 @@ export default function RmcGrades({ onSelectGrade }) {
                   </p>
 
                   <div className="space-y-1.5 mb-5">
-                    <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider block">
+                    <span className="text-xs font-bold text-slate-500 dark:text-slate-400 block">
                       Recommended Applications:
                     </span>
                     {gradeItem.commonUses.map((use, i) => (

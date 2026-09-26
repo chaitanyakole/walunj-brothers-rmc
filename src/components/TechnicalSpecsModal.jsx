@@ -28,13 +28,13 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
-            className="relative max-w-4xl w-full bg-white dark:bg-[#161a22] rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl flex flex-col max-h-[92vh] sm:max-h-[90vh] z-10 overflow-hidden"
+            className="relative max-w-4xl w-full bg-white dark:bg-[#161a22] rounded-2xl border border-slate-200 dark:border-white/10 shadow-2xl flex flex-col max-h-[92vh] sm:max-h-[90vh] z-10 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
             <div className="p-4 sm:p-6 bg-slate-50 dark:bg-[#13161c] border-b border-slate-200 dark:border-white/10 flex items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 dark:bg-orange-500/10 border border-blue-200 dark:border-orange-500/20 flex items-center justify-center text-blue-700 dark:text-orange-400 shrink-0">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 dark:bg-amber-500/10 border border-blue-200 dark:border-amber-500/20 flex items-center justify-center text-blue-700 dark:text-amber-400 shrink-0">
                   <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div className="min-w-0">
@@ -60,7 +60,7 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
             <div className="p-4 sm:p-6 overflow-y-auto space-y-5 bg-white dark:bg-[#161a22]">
               
               {/* Mobile swipe hint */}
-              <div className="flex items-center justify-between text-[11px] text-blue-800 dark:text-orange-400 font-medium sm:hidden bg-blue-50 dark:bg-orange-500/10 px-3 py-1.5 rounded-lg border border-blue-200 dark:border-orange-500/20">
+              <div className="flex items-center justify-between text-[11px] text-blue-800 dark:text-amber-400 font-medium sm:hidden bg-blue-50 dark:bg-amber-500/10 px-3 py-1.5 rounded-lg border border-blue-200 dark:border-amber-500/20">
                 <span>← Swipe table horizontally for all values →</span>
               </div>
 
@@ -85,7 +85,7 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
                           {item.grade}
                         </td>
                         <td className="py-3.5 px-3 text-slate-600 dark:text-slate-400">{item.strength7d}</td>
-                        <td className="py-3.5 px-3 font-bold text-blue-700 dark:text-orange-400">{item.strength28d}</td>
+                        <td className="py-3.5 px-3 font-bold text-blue-700 dark:text-amber-400">{item.strength28d}</td>
                         <td className="py-3.5 px-3 text-slate-600 dark:text-slate-400">{item.aggSize}</td>
                         <td className="py-3.5 px-3 text-slate-800 dark:text-slate-200 font-medium">{item.slump}</td>
                         <td className="py-3.5 px-4 text-slate-600 dark:text-slate-400 max-w-xs">{item.primaryUse}</td>
@@ -96,7 +96,7 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
                               onClose();
                               if (onSelectGrade) onSelectGrade(item.grade);
                             }}
-                            className="px-2.5 py-1.5 min-h-[36px] rounded-md bg-blue-50 dark:bg-white/5 hover:bg-blue-700 dark:hover:bg-orange-500 hover:text-white dark:hover:text-slate-950 text-blue-800 dark:text-slate-200 text-[11px] font-bold transition-all active:scale-95 border border-blue-200 dark:border-white/10"
+                            className="px-2.5 py-1.5 min-h-[36px] rounded-lg bg-blue-50 dark:bg-white/5 hover:bg-blue-700 dark:hover:bg-amber-500 hover:text-white dark:hover:text-slate-950 text-blue-800 dark:text-slate-200 text-[11px] font-bold transition-all active:scale-95 border border-blue-200 dark:border-white/10"
                           >
                             Quote
                           </button>
@@ -111,7 +111,7 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 dark:bg-[#13161c] border border-slate-200 dark:border-white/10 space-y-1.5">
                   <h4 className="font-heading font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-blue-700 dark:text-orange-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-700 dark:text-amber-400 shrink-0" />
                     <span>On-Site Slump & Discharge Advice</span>
                   </h4>
                   <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -121,7 +121,7 @@ export default function TechnicalSpecsModal({ isOpen, onClose, onSelectGrade }) 
 
                 <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 dark:bg-[#13161c] border border-slate-200 dark:border-white/10 space-y-1.5">
                   <h4 className="font-heading font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-blue-700 dark:text-orange-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-700 dark:text-amber-400 shrink-0" />
                     <span>Curing Protocol (IS 456)</span>
                   </h4>
                   <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">

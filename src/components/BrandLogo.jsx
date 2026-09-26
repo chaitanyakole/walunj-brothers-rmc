@@ -245,7 +245,7 @@ export default function BrandLogo({
         className={`flex flex-col items-center text-center group cursor-pointer select-none ${className}`}
         onClick={onClick}
       >
-        <div className={`relative p-2.5 rounded-2xl transition-all duration-300 ${
+        <div className={`relative p-2.5 rounded-xl transition-all duration-300 ${
           isLight
             ? 'bg-blue-50/80 border border-blue-200/90 shadow-md group-hover:border-blue-400 group-hover:shadow-lg'
             : 'bg-white/5 border border-white/10 shadow-2xl group-hover:border-amber-500/40 group-hover:bg-amber-500/5'
@@ -262,14 +262,14 @@ export default function BrandLogo({
 
           {showTagline && (
             <div className="flex items-center gap-2 mt-2">
-              <span className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider ${
+              <span className={`px-2 py-0.5 rounded-lg text-xs font-extrabold uppercase tracking-wider ${
                 isLight 
                   ? 'bg-blue-100 text-blue-800 border border-blue-200' 
                   : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
               }`}>
                 RMC
               </span>
-              <span className={`text-[11px] uppercase tracking-[0.2em] font-bold ${
+              <span className={`text-xs font-semibold ${
                 isLight ? 'text-slate-600' : 'text-slate-400'
               }`}>
                 Ready-Mix Concrete • Pune
@@ -288,7 +288,7 @@ export default function BrandLogo({
       onClick={onClick}
     >
       {/* Icon Housing with Subtle Modern Rim */}
-      <div className={`relative p-1.5 rounded-2xl transition-all duration-300 shrink-0 ${
+      <div className={`relative p-1.5 rounded-xl transition-all duration-300 shrink-0 ${
         isLight
           ? 'bg-blue-50/70 border border-blue-200/80 shadow-xs group-hover:border-blue-400 group-hover:bg-blue-100/60 group-hover:scale-105'
           : 'bg-white/5 border border-white/10 group-hover:border-amber-500/40 group-hover:bg-amber-500/10 group-hover:scale-105'
@@ -313,14 +313,14 @@ export default function BrandLogo({
 
         {showTagline && (
           <div className="flex items-center gap-1.5 mt-1">
-            <span className={`px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] uppercase font-black tracking-wider leading-none shrink-0 ${
+            <span className={`px-1.5 py-0.5 rounded-lg text-xs uppercase font-black tracking-wider leading-none shrink-0 ${
               isLight
                 ? 'bg-amber-500/15 border border-amber-500/30 text-amber-700 dark:text-amber-400'
                 : 'bg-amber-500/20 border border-amber-500/40 text-amber-400'
             }`}>
               RMC
             </span>
-            <span className={`text-[10px] sm:text-[11px] uppercase tracking-wider font-bold truncate ${
+            <span className={`text-xs font-semibold truncate ${
               isLight ? 'text-slate-600' : 'text-slate-400'
             }`}>
               Ready-Mix Concrete • Pune

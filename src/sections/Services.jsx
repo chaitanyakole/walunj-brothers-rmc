@@ -5,14 +5,14 @@ import { services } from '../data/services';
 
 export default function Services({ onSelectService }) {
   return (
-    <section id="services" className="py-14 sm:py-20 md:py-28 bg-[#f8fafc] dark:bg-[#0e1117] relative overflow-hidden border-b border-slate-200 dark:border-white/10 transition-colors duration-200">
+    <section id="services" className="py-14 sm:py-20 md:py-28 bg-[#f8fafc] dark:bg-[#0e1117] relative overflow-hidden border-b border-slate-200 dark:border-white/10">
       {/* Texture grid */}
       <div className="absolute inset-0 bg-blueprint-grid opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-orange-500/10 border border-blue-200 dark:border-orange-500/20 text-blue-800 dark:text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-amber-500/10 border border-blue-200 dark:border-amber-500/20 text-blue-800 dark:text-amber-400 text-xs font-bold uppercase tracking-widest mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Scope of Supply & Logistics</span>
           </div>
@@ -40,7 +40,7 @@ export default function Services({ onSelectService }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className={`group relative rounded-2xl bg-white dark:bg-[#181c24] border border-slate-200 dark:border-white/10 hover:border-blue-400 dark:hover:border-orange-500/40 overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-xl dark:shadow-black/50 transition-all duration-300 hover:-translate-y-1.5 ${
+                className={`group relative rounded-2xl bg-white dark:bg-[#181c24] border border-slate-200 dark:border-white/10 hover:border-blue-400 dark:hover:border-amber-500/40 overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-xl dark:shadow-black/50 transition-all duration-300 hover:-translate-y-1.5 ${
                   isLast ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
               >
@@ -55,10 +55,10 @@ export default function Services({ onSelectService }) {
                   
                   {/* Number & Tag */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                    <span className="font-heading font-extrabold text-xs text-slate-800 dark:text-slate-200 bg-white/90 dark:bg-[#0e1117]/90 px-2.5 py-1 rounded-md backdrop-blur-md border border-slate-200 dark:border-white/10 shadow-xs">
+                    <span className="font-heading font-extrabold text-xs text-slate-800 dark:text-slate-200 bg-white/90 dark:bg-[#0e1117]/90 px-2.5 py-1 rounded-lg backdrop-blur-md border border-slate-200 dark:border-white/10 shadow-xs">
                       {service.id}
                     </span>
-                    <span className="text-[11px] font-bold text-amber-800 dark:text-orange-400 bg-amber-100/90 dark:bg-orange-500/20 border border-amber-300 dark:border-orange-500/30 px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md shadow-xs">
+                    <span className="text-[11px] font-bold text-amber-800 dark:text-amber-400 bg-amber-100/90 dark:bg-amber-500/20 border border-amber-300 dark:border-amber-500/30 px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md shadow-xs">
                       {service.tag}
                     </span>
                   </div>
@@ -67,11 +67,11 @@ export default function Services({ onSelectService }) {
                 {/* Content */}
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue-50 dark:bg-orange-500/10 border border-blue-200 dark:border-orange-500/20 text-blue-700 dark:text-orange-400 flex items-center justify-center mb-4 group-hover:bg-blue-700 dark:group-hover:bg-orange-500 group-hover:text-white dark:group-hover:text-slate-950 transition-colors duration-200">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue-50 dark:bg-amber-500/10 border border-blue-200 dark:border-amber-500/20 text-blue-700 dark:text-amber-400 flex items-center justify-center mb-4 group-hover:bg-blue-700 dark:group-hover:bg-amber-500 group-hover:text-white dark:group-hover:text-slate-950 transition-colors duration-200">
                       <Icon className="w-5 h-5" />
                     </div>
 
-                    <h3 className="font-heading font-bold text-lg sm:text-xl text-slate-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-orange-400 transition-colors mb-2">
+                    <h3 className="font-heading font-bold text-lg sm:text-xl text-slate-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-amber-400 transition-colors mb-2">
                       {service.title}
                     </h3>
 
@@ -88,9 +88,9 @@ export default function Services({ onSelectService }) {
                   <div className="pt-3 border-t border-slate-100 dark:border-white/5">
                     <button
                       onClick={() => onSelectService(service.title)}
-                      className="w-full min-h-[44px] inline-flex items-center justify-between text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-orange-400 group-hover:text-blue-900 dark:group-hover:text-orange-300 py-2 active:bg-blue-50 dark:active:bg-white/5 rounded-lg px-2 -mx-2 transition-colors"
+                      className="w-full min-h-[44px] inline-flex items-center justify-between text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-amber-400 group-hover:text-blue-900 dark:group-hover:text-amber-300 py-2 active:bg-blue-50 dark:active:bg-white/5 rounded-lg px-2 -mx-2 transition-colors cursor-pointer"
                     >
-                      <span className="truncate pr-2">Request Quote for {service.title}</span>
+                      <span>Request Service Quote</span>
                       <ArrowUpRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </button>
                   </div>
@@ -98,6 +98,20 @@ export default function Services({ onSelectService }) {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Unified Section Action */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
+            Need customized high-grade mix design or continuous batching for a multi-story project?
+          </p>
+          <button
+            onClick={() => onSelectService('Custom Mix & Project Consultation')}
+            className="btn-secondary min-h-[46px] px-6 py-3 rounded-xl shadow-md transition-all active:scale-95 cursor-pointer"
+          >
+            <span>Consult Dispatch Engineer & Request Comprehensive Quote</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>
