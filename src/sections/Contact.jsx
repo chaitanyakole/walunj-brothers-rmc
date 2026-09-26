@@ -42,20 +42,20 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-14 sm:py-20 md:py-28 bg-[#121418] relative overflow-hidden">
+    <section id="contact" className="py-14 sm:py-20 md:py-28 bg-white dark:bg-[#0B0F17] relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800/60 text-blue-800 dark:text-blue-300 text-xs font-bold uppercase tracking-widest mb-4">
             <Building2 className="w-3.5 h-3.5" />
             <span>Connect & Coordinate</span>
           </div>
 
-          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight mb-4 sm:mb-5">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl text-slate-950 dark:text-white tracking-tight mb-4 sm:mb-5">
             Let's Build Something Strong
           </h2>
 
-          <p className="text-slate-400 text-sm sm:text-lg leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-lg leading-relaxed">
             Reach out to our batching and operations desk for quotations, batch scheduling, technical mix advice, or site inspection coordination.
           </p>
         </div>
@@ -66,25 +66,25 @@ export default function Contact() {
           {/* Left Column: Business Details & Google Maps Card */}
           <div className="lg:col-span-5 space-y-6">
             {/* Business Card */}
-            <div className="p-5 sm:p-8 rounded-2xl bg-[#181c24] border border-white/10 shadow-xl space-y-6">
+            <div className="p-5 sm:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs space-y-6">
               <div>
-                <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-white">
+                <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white">
                   {business.name}
                 </h3>
-                <p className="text-xs uppercase tracking-wider text-orange-400 font-bold mt-1">
+                <p className="text-xs uppercase tracking-wider text-blue-700 dark:text-amber-400 font-bold mt-1">
                   Ready-Mix Concrete Supplier
                 </p>
               </div>
 
               <div className="space-y-4 pt-2">
                 {/* Address Card */}
-                <div className="flex items-start gap-3 sm:gap-3.5 p-3.5 sm:p-4 rounded-xl bg-black/30 border border-white/5">
-                  <MapPin className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 sm:gap-3.5 p-3.5 sm:p-4 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 shadow-xs">
+                  <MapPin className="w-5 h-5 text-blue-700 dark:text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs uppercase font-bold text-slate-400 block mb-1">
+                    <span className="text-xs uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">
                       Business Address
                     </span>
-                    <p className="text-sm text-slate-200 leading-relaxed">
+                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                       {business.address.line1},<br />
                       {business.address.line2},<br />
                       {business.address.line3}, {business.address.country}.
@@ -93,7 +93,7 @@ export default function Contact() {
                       href={business.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-orange-400 hover:text-orange-300 font-semibold mt-2.5 min-h-[36px] py-1"
+                      className="inline-flex items-center gap-1.5 text-xs text-blue-700 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300 font-semibold mt-2.5 min-h-[36px] py-1"
                     >
                       <Navigation className="w-3.5 h-3.5" />
                       <span>Open in Google Maps</span>
@@ -103,15 +103,15 @@ export default function Contact() {
                 </div>
 
                 {/* Email Card */}
-                <div className="flex items-start gap-3 sm:gap-3.5 p-3.5 sm:p-4 rounded-xl bg-black/30 border border-white/5">
-                  <Mail className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 sm:gap-3.5 p-3.5 sm:p-4 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 shadow-xs">
+                  <Mail className="w-5 h-5 text-blue-700 dark:text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs uppercase font-bold text-slate-400 block mb-0.5">
+                    <span className="text-xs uppercase font-bold text-slate-500 dark:text-slate-400 block mb-0.5">
                       Email
                     </span>
                     <a
                       href={`mailto:${business.email}`}
-                      className="text-sm text-slate-200 hover:text-orange-400 font-medium transition-colors break-all"
+                      className="text-sm text-slate-800 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-400 font-medium transition-colors break-all"
                     >
                       {business.email}
                     </a>
@@ -120,15 +120,15 @@ export default function Contact() {
 
                 {/* Phone Card */}
                 {business.phone ? (
-                  <div className="flex items-start gap-3 sm:gap-3.5 p-3.5 sm:p-4 rounded-xl bg-black/30 border border-white/5">
-                    <Phone className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-3 sm:gap-3.5 p-3.5 sm:p-4 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 shadow-xs">
+                    <Phone className="w-5 h-5 text-blue-700 dark:text-amber-400 shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-xs uppercase font-bold text-slate-400 block mb-0.5">
+                      <span className="text-xs uppercase font-bold text-slate-500 dark:text-slate-400 block mb-0.5">
                         Direct Phone / Order Line
                       </span>
                       <a
                         href={`tel:${business.phone}`}
-                        className="text-sm text-white hover:text-orange-400 font-bold transition-colors tracking-wide inline-block py-0.5"
+                        className="text-sm text-slate-900 dark:text-white hover:text-blue-700 dark:hover:text-amber-400 font-bold transition-colors tracking-wide inline-block py-0.5"
                       >
                         {business.phone}
                       </a>
@@ -142,26 +142,26 @@ export default function Contact() {
                     href={getWhatsAppUrl("Hello Walunj Brother's RMC, I am reaching out from your contact page.")}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 sm:p-3.5 min-h-[48px] rounded-xl bg-emerald-600/15 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-600/25 flex flex-col items-center justify-center text-center transition-all active:scale-[0.98]"
+                    className="p-3 sm:p-3.5 min-h-[48px] rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 flex flex-col items-center justify-center text-center transition-all active:scale-[0.98] shadow-xs"
                   >
-                    <MessageSquare className="w-5 h-5 mb-1 text-emerald-400" />
+                    <MessageSquare className="w-5 h-5 mb-1 text-emerald-600 dark:text-emerald-400" />
                     <span className="text-xs font-bold">WhatsApp</span>
                   </a>
 
                   {business.phone ? (
                     <a
                       href={`tel:${business.phone}`}
-                      className="p-3 sm:p-3.5 min-h-[48px] rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:bg-white/10 flex flex-col items-center justify-center text-center transition-all active:scale-[0.98]"
+                      className="p-3 sm:p-3.5 min-h-[48px] rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/60 text-blue-800 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/40 flex flex-col items-center justify-center text-center transition-all active:scale-[0.98] shadow-xs"
                     >
-                      <Phone className="w-5 h-5 mb-1 text-orange-400" />
+                      <Phone className="w-5 h-5 mb-1 text-blue-700 dark:text-blue-400" />
                       <span className="text-xs font-bold">Call Now</span>
                     </a>
                   ) : (
                     <a
                       href={`mailto:${business.email}?subject=Walunj%20Brothers%20RMC%20Enquiry`}
-                      className="p-3 sm:p-3.5 min-h-[48px] rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:bg-white/10 flex flex-col items-center justify-center text-center transition-all active:scale-[0.98]"
+                      className="p-3 sm:p-3.5 min-h-[48px] rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/60 text-blue-800 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/40 flex flex-col items-center justify-center text-center transition-all active:scale-[0.98] shadow-xs"
                     >
-                      <Mail className="w-5 h-5 mb-1 text-orange-400" />
+                      <Mail className="w-5 h-5 mb-1 text-blue-700 dark:text-blue-400" />
                       <span className="text-xs font-bold">Email Us</span>
                     </a>
                   )}
@@ -171,11 +171,11 @@ export default function Contact() {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7 bg-[#181c24] rounded-2xl sm:rounded-3xl border border-white/10 p-5 sm:p-8 md:p-10 shadow-xl">
-            <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-white mb-2">
+          <div className="lg:col-span-7 bg-white dark:bg-slate-900/90 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 p-5 sm:p-8 md:p-10 shadow-lg dark:shadow-none">
+            <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white mb-2">
               Send Us a Message
             </h3>
-            <p className="text-xs sm:text-sm text-slate-400 mb-6">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-6">
               Have a question about RMC supply, customized grade proportions, or delivery schedules? Send a message directly.
             </p>
 
@@ -187,18 +187,18 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="py-10 sm:py-12 text-center"
                 >
-                  <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-4 shadow-xs">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <h4 className="font-heading font-bold text-xl text-white mb-2">
+                  <h4 className="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2">
                     Enquiry Received
                   </h4>
-                  <p className="text-slate-300 text-sm max-w-md mx-auto mb-6">
+                  <p className="text-slate-700 dark:text-slate-300 text-sm max-w-md mx-auto mb-6">
                     Thank you, {formData.name}. Our dispatch team has received your enquiry and will respond promptly.
                   </p>
                   <button
                     onClick={handleReset}
-                    className="text-xs uppercase font-bold tracking-wider text-orange-400 hover:underline min-h-[44px] px-4 py-2"
+                    className="text-xs uppercase font-bold tracking-wider text-blue-700 dark:text-amber-400 hover:underline min-h-[44px] px-4 py-2"
                   >
                     Send another enquiry
                   </button>
@@ -206,8 +206,8 @@ export default function Contact() {
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-4 sm:space-y-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
-                      Your Name <span className="text-orange-500">*</span>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
+                      Your Name <span className="text-amber-600 dark:text-amber-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -217,12 +217,12 @@ export default function Contact() {
                         if (errors.name) setErrors({ ...errors, name: '' });
                       }}
                       placeholder="e.g. Anand Shinde"
-                      className={`w-full bg-[#13161c] border rounded-xl px-4 py-3 min-h-[48px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
-                        errors.name ? 'border-red-500' : 'border-white/10 hover:border-white/20'
+                      className={`w-full bg-slate-50 dark:bg-slate-950/70 border rounded-xl px-4 py-3 min-h-[48px] text-base sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600/40 dark:focus:ring-amber-500/40 focus:border-blue-600 dark:focus:border-amber-500 transition-all ${
+                        errors.name ? 'border-red-500 bg-red-50 dark:bg-red-950/30' : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                       }`}
                     />
                     {errors.name && (
-                      <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
+                      <p className="mt-1 text-xs text-red-600 dark:text-red-400 flex items-center gap-1">
                         <AlertCircle className="w-3 h-3" />
                         <span>{errors.name}</span>
                       </p>
@@ -231,8 +231,8 @@ export default function Contact() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
-                        Mobile Number <span className="text-orange-500">*</span>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
+                        Mobile Number <span className="text-amber-600 dark:text-amber-400">*</span>
                       </label>
                       <input
                         type="tel"
@@ -242,12 +242,12 @@ export default function Contact() {
                           if (errors.phone) setErrors({ ...errors, phone: '' });
                         }}
                         placeholder="10-digit mobile"
-                        className={`w-full bg-[#13161c] border rounded-xl px-4 py-3 min-h-[48px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
-                          errors.phone ? 'border-red-500' : 'border-white/10 hover:border-white/20'
+                        className={`w-full bg-slate-50 dark:bg-slate-950/70 border rounded-xl px-4 py-3 min-h-[48px] text-base sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600/40 dark:focus:ring-amber-500/40 focus:border-blue-600 dark:focus:border-amber-500 transition-all ${
+                          errors.phone ? 'border-red-500 bg-red-50 dark:bg-red-950/30' : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                         }`}
                       />
                       {errors.phone && (
-                        <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
+                        <p className="mt-1 text-xs text-red-600 dark:text-red-400 flex items-center gap-1">
                           <AlertCircle className="w-3 h-3" />
                           <span>{errors.phone}</span>
                         </p>
@@ -255,22 +255,22 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
-                        Email Address <span className="text-slate-500 lowercase">(optional)</span>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
+                        Email Address <span className="text-slate-400 dark:text-slate-500 lowercase">(optional)</span>
                       </label>
                       <input
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="yourname@gmail.com"
-                        className="w-full bg-[#13161c] border border-white/10 hover:border-white/20 rounded-xl px-4 py-3 min-h-[48px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+                        className="w-full bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-xl px-4 py-3 min-h-[48px] text-base sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600/40 dark:focus:ring-amber-500/40 focus:border-blue-600 dark:focus:border-amber-500 transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
-                      Message / Project Details <span className="text-orange-500">*</span>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
+                      Message / Project Details <span className="text-amber-600 dark:text-amber-400">*</span>
                     </label>
                     <textarea
                       rows="4"
@@ -280,12 +280,12 @@ export default function Contact() {
                         if (errors.message) setErrors({ ...errors, message: '' });
                       }}
                       placeholder="Share your site location, concrete grade required, or questions..."
-                      className={`w-full bg-[#13161c] border rounded-xl p-3.5 sm:p-4 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
-                        errors.message ? 'border-red-500' : 'border-white/10 hover:border-white/20'
+                      className={`w-full bg-slate-50 dark:bg-slate-950/70 border rounded-xl p-3.5 sm:p-4 text-base sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-600/40 dark:focus:ring-amber-500/40 focus:border-blue-600 dark:focus:border-amber-500 transition-all ${
+                        errors.message ? 'border-red-500 bg-red-50 dark:bg-red-950/30' : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                       }`}
                     />
                     {errors.message && (
-                      <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
+                      <p className="mt-1 text-xs text-red-600 dark:text-red-400 flex items-center gap-1">
                         <AlertCircle className="w-3 h-3" />
                         <span>{errors.message}</span>
                       </p>
@@ -294,7 +294,7 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-heading font-extrabold text-sm min-h-[48px] py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 active:scale-98 transition-all"
+                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-heading font-extrabold text-sm min-h-[48px] py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 active:scale-98 transition-all"
                   >
                     <Send className="w-4 h-4 text-slate-950" />
                     <span>Send Enquiry</span>

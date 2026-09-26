@@ -1,20 +1,27 @@
 @import "tailwindcss";
 
+@variant dark (&:where([data-theme="industrial"], [data-theme="industrial"] *, .dark, .dark *));
+
 @theme {
   --font-heading: 'Outfit', sans-serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --color-brand-orange: #f97316;
-  --color-brand-orange-hover: #ea580c;
-  --color-charcoal-950: #0c0e12;
-  --color-charcoal-900: #13161c;
-  --color-charcoal-850: #181c23;
-  --color-charcoal-800: #1f242e;
-  --color-charcoal-700: #29303d;
+  --color-brand-blue: #0f4c81;
+  --color-brand-blue-hover: #0c3b64;
+  --color-brand-blue-light: #eff6ff;
+  --color-brand-amber: #f59e0b;
+  --color-brand-amber-hover: #d97706;
+  --color-brand-orange: #f59e0b;
+  --color-brand-orange-hover: #d97706;
+  --color-charcoal-950: #0f172a;
+  --color-charcoal-900: #1e293b;
+  --color-charcoal-850: #334155;
+  --color-charcoal-800: #475569;
+  --color-charcoal-700: #64748b;
 }
 
 :root {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  color-scheme: dark;
+  color-scheme: light;
   --safe-area-bottom: env(safe-area-inset-bottom, 0px);
   --safe-area-top: env(safe-area-inset-top, 0px);
 }
@@ -24,24 +31,29 @@ html {
   width: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  background-color: #f8fafc;
 }
 
 body {
   overflow-x: hidden;
   width: 100%;
   position: relative;
+  background-color: #f8fafc;
+  color: #1e293b;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: 'Outfit', sans-serif;
   overflow-wrap: break-word;
   word-break: break-word;
+  color: #0f172a;
 }
 
 /* Prevent unwanted mobile horizontal shake/scroll */
 #root {
   overflow-x: hidden;
   width: 100%;
+  background-color: #f8fafc;
 }
 
 /* Guarantee iOS Safari never auto-zooms into form fields on focus */
@@ -60,35 +72,103 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   scrollbar-width: none;
 }
 
-/* Custom subtle scrollbar */
+/* Custom subtle light scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #121417;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a313d;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f97316;
+  background: #0f4c81;
 }
 
-/* Subtle industrial grid pattern */
-.bg-grid-pattern {
-  background-size: 36px 36px;
+/* Clean Architectural Blueprint Grid Pattern */
+.bg-grid-pattern, .bg-blueprint-grid {
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 76, 129, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 76, 129, 0.05) 1px, transparent 1px);
 }
 
 .bg-radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(15, 76, 129, 0.08) 0%, transparent 70%);
+}
+
+/* Blueprint card shadow & elevation */
+.blueprint-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blueprint-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px -5px rgba(15, 76, 129, 0.08), 0 8px 10px -6px rgba(15, 76, 129, 0.04);
+}
+
+/* Industrial Dark Theme Overrides */
+html[data-theme="industrial"],
+html.dark {
+  color-scheme: dark;
+  background-color: #0e1117;
+}
+
+html[data-theme="industrial"] body,
+html.dark body {
+  background-color: #0e1117;
+  color: #cbd5e1;
+}
+
+html[data-theme="industrial"] #root,
+html.dark #root {
+  background-color: #0e1117;
+}
+
+html[data-theme="industrial"] h1,
+html[data-theme="industrial"] h2,
+html[data-theme="industrial"] h3,
+html[data-theme="industrial"] h4,
+html[data-theme="industrial"] h5,
+html[data-theme="industrial"] h6,
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #f8fafc;
+}
+
+html[data-theme="industrial"] ::-webkit-scrollbar-track,
+html.dark ::-webkit-scrollbar-track {
+  background: #13161c;
+}
+
+html[data-theme="industrial"] ::-webkit-scrollbar-thumb,
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+html[data-theme="industrial"] ::-webkit-scrollbar-thumb:hover,
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+html[data-theme="industrial"] .bg-blueprint-grid,
+html.dark .bg-blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 /* Smooth transitions */

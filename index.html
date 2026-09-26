@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth theme-blueprint" data-theme="blueprint">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -12,7 +12,7 @@
     <meta name="keywords" content="RMC supplier in Wagholi, Ready Mix Concrete Wagholi, RMC supplier Pune, Ready Mix Concrete Pune, RMC concrete delivery Pune, RMC supplier Lonikand, Ready Mix Concrete Haveli, Construction concrete supplier Pune" />
     <meta name="author" content="Walunj Brother's RMC" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#14171c" />
+    <meta name="theme-color" content="#0f4c81" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -65,8 +65,26 @@
       "priceRange": "$$"
     }
     </script>
+
+    <!-- Immediate theme bootstrap: Blueprint is primary theme -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('wb_rmc_theme');
+          var theme = (saved === 'industrial') ? 'industrial' : 'blueprint';
+          document.documentElement.setAttribute('data-theme', theme);
+          if (theme === 'industrial') {
+            document.documentElement.classList.add('dark', 'theme-industrial');
+            document.documentElement.classList.remove('theme-blueprint');
+          } else {
+            document.documentElement.classList.remove('dark', 'theme-industrial');
+            document.documentElement.classList.add('theme-blueprint');
+          }
+        } catch(e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-[#121417] text-slate-100 antialiased selection:bg-orange-500 selection:text-white min-h-screen">
+  <body class="bg-[#f8fafc] dark:bg-[#0e1117] text-slate-800 dark:text-slate-100 antialiased selection:bg-amber-500 selection:text-slate-950 min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

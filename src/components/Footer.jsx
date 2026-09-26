@@ -17,12 +17,15 @@ export default function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="bg-[#0c0e12] border-t border-white/10 text-slate-300 pt-12 sm:pt-16 pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] md:pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
+    <footer className="bg-[#0b192c] border-t border-slate-800 text-slate-300 pt-12 sm:pt-16 pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] md:pb-12 relative overflow-hidden">
+      {/* Blueprint grid accent */}
+      <div className="absolute inset-0 bg-blueprint-grid opacity-10 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
           {/* Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <BrandLogo size="md" />
+            <BrandLogo size="md" theme="dark" />
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               Reliable Ready-Mix Concrete supply and transportation for construction projects across Pune and surrounding areas.
@@ -37,7 +40,7 @@ export default function Footer() {
                   href={getWhatsAppUrl("Hello Walunj Brother's RMC, I am reaching out from your website.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-white/5 hover:bg-emerald-500/20 text-slate-300 hover:text-emerald-400 border border-white/10 flex items-center justify-center transition-all"
+                  className="w-10 h-10 rounded-lg bg-white/5 hover:bg-emerald-500/20 text-slate-300 hover:text-emerald-400 border border-slate-800 flex items-center justify-center transition-all"
                   aria-label="Walunj Brother's RMC WhatsApp"
                 >
                   <MessageSquare className="w-5 h-5" />
@@ -48,7 +51,7 @@ export default function Footer() {
                     href={business.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-lg bg-white/5 hover:bg-pink-500/20 text-slate-300 hover:text-pink-400 border border-white/10 flex items-center justify-center transition-all"
+                    className="w-10 h-10 rounded-lg bg-white/5 hover:bg-pink-500/20 text-slate-300 hover:text-pink-400 border border-slate-800 flex items-center justify-center transition-all"
                     aria-label="Walunj Brother's RMC Instagram"
                   >
                     <InstagramIcon className="w-5 h-5" />
@@ -57,7 +60,7 @@ export default function Footer() {
                   <a
                     href="#instagram"
                     onClick={(e) => handleNavClick(e, '#instagram')}
-                    className="w-10 h-10 rounded-lg bg-white/5 hover:bg-pink-500/20 text-slate-300 hover:text-pink-400 border border-white/10 flex items-center justify-center transition-all"
+                    className="w-10 h-10 rounded-lg bg-white/5 hover:bg-pink-500/20 text-slate-300 hover:text-pink-400 border border-slate-800 flex items-center justify-center transition-all"
                     aria-label="Walunj Brother's RMC Instagram Channel"
                   >
                     <InstagramIcon className="w-5 h-5" />
@@ -69,7 +72,7 @@ export default function Footer() {
 
           {/* Quick Links (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider mb-4 border-l-2 border-orange-500 pl-2.5">
+            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider mb-4 border-l-2 border-amber-500 pl-2.5">
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -86,7 +89,7 @@ export default function Footer() {
                   <a
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-1.5"
+                    className="text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-1.5"
                   >
                     <span className="text-xs text-slate-600">›</span>
                     <span>{item.label}</span>
@@ -98,7 +101,7 @@ export default function Footer() {
 
           {/* Services (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider mb-4 border-l-2 border-orange-500 pl-2.5">
+            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider mb-4 border-l-2 border-amber-500 pl-2.5">
               Services
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -114,7 +117,7 @@ export default function Footer() {
                   <a
                     href="#services"
                     onClick={(e) => handleNavClick(e, '#services')}
-                    className="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-1.5"
+                    className="text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-1.5"
                   >
                     <span className="text-xs text-slate-600">›</span>
                     <span>{service}</span>
@@ -126,12 +129,12 @@ export default function Footer() {
 
           {/* Contact Details (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider mb-4 border-l-2 border-orange-500 pl-2.5">
+            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider mb-4 border-l-2 border-amber-500 pl-2.5">
               Contact Us
             </h4>
             <ul className="space-y-3.5 text-sm text-slate-400">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                 <div>
                   <p className="text-slate-300 font-medium">Business Address:</p>
                   <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
@@ -141,7 +144,7 @@ export default function Footer() {
                     href={business.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[11px] text-orange-400 hover:underline mt-1"
+                    className="inline-flex items-center gap-1 text-[11px] text-amber-400 hover:underline mt-1"
                   >
                     <span>View on Google Maps</span>
                     <ArrowUpRight className="w-3 h-3" />
@@ -150,10 +153,10 @@ export default function Footer() {
               </li>
 
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-orange-400 shrink-0" />
+                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
                 <a
                   href={`mailto:${business.email}`}
-                  className="text-xs text-slate-300 hover:text-orange-400 transition-colors break-all"
+                  className="text-xs text-slate-300 hover:text-amber-400 transition-colors break-all"
                 >
                   {business.email}
                 </a>
@@ -161,10 +164,10 @@ export default function Footer() {
 
               {business.phone ? (
                 <li className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-orange-400 shrink-0" />
+                  <Phone className="w-4 h-4 text-amber-400 shrink-0" />
                   <a
                     href={`tel:${business.phone}`}
-                    className="text-xs text-slate-300 hover:text-orange-400 transition-colors"
+                    className="text-xs text-slate-300 hover:text-amber-400 transition-colors"
                   >
                     {business.phone}
                   </a>
@@ -187,9 +190,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {currentYear} Walunj Brother's RMC. All Rights Reserved.</p>
-          <p className="text-slate-400">
+          <p className="text-slate-500">
             Ready-Mix Concrete Supplier • Wagholi, Pune, Maharashtra
           </p>
         </div>

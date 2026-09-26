@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, MessageSquare, FileText, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import { business } from '../config/business';
-import { getWhatsAppUrl } from '../utils/whatsapp';
 import BrandLogo from './BrandLogo';
+import ThemeSwitcher from './ThemeSwitcher';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Navbar({ onQuoteClick }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isDark } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,8 +64,8 @@ export default function Navbar({ onQuoteClick }) {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#121418]/95 backdrop-blur-md py-3 shadow-xl shadow-black/30 border-b border-white/10'
-            : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4 sm:py-5'
+            ? 'bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md py-3 shadow-md shadow-slate-200/60 dark:shadow-black/40 border-b border-slate-200 dark:border-white/10'
+            : 'bg-white/85 dark:bg-[#0e1117]/85 backdrop-blur-sm py-3.5 sm:py-4 border-b border-slate-200/60 dark:border-white/5 shadow-xs'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,70 +77,35 @@ export default function Navbar({ onQuoteClick }) {
               className="group min-w-0"
               aria-label="Walunj Brother's RMC Home"
             >
-              <BrandLogo size="md" />
+              <BrandLogo size="md" theme={isDark ? 'dark' : 'light'} />
             </a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Main Navigation">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5" aria-label="Main Navigation">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="px-3 py-1.5 text-sm font-medium text-slate-300 hover:text-orange-400 hover:bg-white/5 rounded-md transition-all duration-150"
+                  className="px-3 py-1.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-amber-400 hover:bg-blue-50/80 dark:hover:bg-white/5 rounded-lg transition-all duration-150"
                 >
                   {link.label}
                 </a>
               ))}
             </nav>
 
-            {/* Desktop CTAs */}
-            <div className="hidden lg:flex items-center gap-3">
-              <a
-                href={getWhatsAppUrl("Hello Walunj Brother's RMC, I would like to enquire about RMC supply.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-slate-300 hover:text-emerald-400 hover:bg-white/5 rounded-lg transition-colors border border-white/5"
-                title="Direct WhatsApp"
-                aria-label="Direct WhatsApp Enquiry"
-              >
-                <MessageSquare className="w-5 h-5 text-emerald-400" />
-              </a>
-
-              {business.phone ? (
-                <a
-                  href={`tel:${business.phone}`}
-                  className="flex items-center gap-2 px-3 py-2 text-slate-300 hover:text-orange-400 hover:bg-white/5 rounded-lg transition-colors border border-white/5 text-xs font-bold"
-                  title="Call Us Directly"
-                  aria-label="Call Walunj Brother's RMC"
-                >
-                  <Phone className="w-4 h-4 text-orange-400" />
-                  <span className="hidden xl:inline">{business.phone}</span>
-                </a>
-              ) : null}
-
-              <button
-                onClick={onQuoteClick}
-                className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-heading font-bold text-sm px-5 py-2.5 rounded-lg shadow-lg shadow-orange-500/20 active:scale-95 transition-all duration-200"
-              >
-                <FileText className="w-4 h-4" />
-                <span>Get a Quote</span>
-              </button>
+            {/* Desktop Actions & Theme Switcher (Icon Only) */}
+            <div className="hidden lg:flex items-center">
+              <ThemeSwitcher variant="toggle" />
             </div>
 
-            {/* Mobile Hamburger Button & Quick Action */}
+            {/* Mobile Actions: Theme Switcher (Icon Only) + Hamburger */}
             <div className="flex items-center gap-2 lg:hidden shrink-0">
-              <button
-                onClick={onQuoteClick}
-                className="bg-orange-500 hover:bg-orange-600 text-slate-950 font-extrabold text-xs px-3 py-2 min-h-[40px] rounded-lg flex items-center gap-1 active:scale-95 transition-all shadow-md shadow-orange-500/20"
-                aria-label="Quick Quote"
-              >
-                <span>Quote</span>
-              </button>
+              <ThemeSwitcher variant="toggle" />
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="w-10 h-10 flex items-center justify-center text-slate-300 hover:text-white bg-white/5 rounded-lg border border-white/10 active:scale-95"
+                className="w-10 h-10 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-white bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 rounded-lg border border-slate-200 dark:border-white/10 active:scale-95"
                 aria-label="Toggle Mobile Menu"
                 aria-expanded={isMobileMenuOpen}
               >
@@ -158,78 +125,55 @@ export default function Navbar({ onQuoteClick }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-xs lg:hidden"
             />
             <motion.aside
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm z-50 bg-[#14171d] border-l border-white/10 p-5 sm:p-6 flex flex-col justify-between overflow-y-auto lg:hidden pt-[calc(1.25rem+env(safe-area-inset-top,0px))] pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))]"
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm z-50 bg-white dark:bg-[#14171d] border-l border-slate-200 dark:border-white/10 p-5 sm:p-6 flex flex-col justify-between overflow-y-auto lg:hidden pt-[calc(1.25rem+env(safe-area-inset-top,0px))] pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] shadow-2xl"
             >
               <div>
-                <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                  <BrandLogo size="sm" />
+                <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-white/10">
+                  <BrandLogo size="sm" theme={isDark ? 'dark' : 'light'} />
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-white rounded-lg hover:bg-white/5 active:scale-95"
+                    className="w-10 h-10 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 active:scale-95"
                     aria-label="Close Menu"
                   >
                     <X className="w-5 h-5" />
                   </button>
                 </div>
 
+                {/* Theme Switcher in mobile drawer */}
+                <div className="pt-3.5 pb-2 border-b border-slate-200/80 dark:border-white/5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-1.5">
+                    Theme Preference
+                  </span>
+                  <ThemeSwitcher variant="segmented" />
+                </div>
+
                 {/* Mobile Links */}
-                <nav className="flex flex-col gap-1 py-4">
+                <nav className="flex flex-col gap-1 py-3">
                   {navLinks.map((link) => (
                     <a
                       key={link.label}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className="flex items-center justify-between px-3.5 py-3 text-base font-medium text-slate-200 hover:text-orange-400 hover:bg-white/5 rounded-lg transition-colors min-h-[44px] active:bg-white/10"
+                      className="flex items-center justify-between px-3.5 py-2.5 text-base font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-amber-400 hover:bg-blue-50 dark:hover:bg-white/5 rounded-lg transition-colors min-h-[44px] active:bg-blue-100 dark:active:bg-white/10"
                     >
                       <span>{link.label}</span>
-                      <ChevronRight className="w-4 h-4 text-slate-500" />
+                      <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-500" />
                     </a>
                   ))}
                 </nav>
               </div>
 
-              {/* Mobile Actions in Drawer */}
-              <div className="pt-4 border-t border-white/10 space-y-3">
-                <button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    onQuoteClick();
-                  }}
-                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-heading font-bold text-sm min-h-[44px] py-3 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 active:scale-98"
-                >
-                  <FileText className="w-4 h-4" />
-                  <span>Request an RMC Quote</span>
-                </button>
-
-                <a
-                  href={getWhatsAppUrl("Hello Walunj Brother's RMC, I would like to enquire about RMC supply for my construction project.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 font-semibold text-sm min-h-[44px] py-2.5 rounded-lg flex items-center justify-center gap-2"
-                >
-                  <MessageSquare className="w-4 h-4 text-emerald-400" />
-                  <span>WhatsApp Enquiry</span>
-                </a>
-
-                {business.phone ? (
-                  <a
-                    href={`tel:${business.phone}`}
-                    className="w-full bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 font-semibold text-sm min-h-[44px] py-2.5 rounded-lg flex items-center justify-center gap-2"
-                  >
-                    <Phone className="w-4 h-4 text-orange-400" />
-                    <span>Call: {business.phone}</span>
-                  </a>
-                ) : null}
-
-                <p className="text-[11px] text-slate-400 text-center pt-1">
-                  Serving Wagholi, Pune & Surrounding Corridors
+              {/* Mobile Drawer Footer */}
+              <div className="pt-4 border-t border-slate-200 dark:border-white/10">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 text-center font-medium">
+                  Walunj Brother's RMC • Pune
                 </p>
               </div>
             </motion.aside>

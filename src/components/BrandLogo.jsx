@@ -1,17 +1,20 @@
 import React from 'react';
 
 /**
- * Walunj Brother's RMC - Official Vector Brand Emblem & Logo
+ * Walunj Brother's RMC - Ultra-Modern Geometric 'WB' Architectural Monogram
  * 
- * Design Concept:
- * - Industrial Hexagonal Shield: Signifies high-strength concrete, structural foundation & durability.
- * - Monogram 'W' & 'B': Heavy geometric concrete beams forming an architectural base.
- * - Transit Mixer Drum: The universal, unmistakable symbol of Ready-Mix Concrete (RMC).
- * - Triple Aggregate Pyramids: Cement, Sand, and Aggregates unified into superior grade concrete.
- * - Dynamic Flow Blades: Continuous batching, flowability, and precision slump.
+ * Design Philosophy:
+ * - Geometric 'WB' Interlocking Beams: Heavy structural concrete columns and cantilevers 
+ *   fused together into a monolithic architectural monogram.
+ * - Left Profile ('W'): Dual-slanted reinforced concrete cantilevers engineered with 3D beveled light/shadow faces.
+ * - Right Profile ('B'): Twin load-bearing structural arch bays anchored directly to the central spine.
+ * - Center Nexus: A diamond-cut golden aggregate crystal representing IS-certified compressive strength.
+ * - Dynamic Dual-Theme Gradients: Tailored for Architectural Blueprint (Cobalt & Cyan) and Industrial Dark (Graphite & Molten Amber).
  */
 
-export function BrandMark({ size = 44, className = "" }) {
+export function BrandMark({ size = 44, theme = 'light', className = "" }) {
+  const isLight = theme === 'light' || theme === 'blueprint';
+
   return (
     <svg
       width={size}
@@ -19,123 +22,187 @@ export function BrandMark({ size = 44, className = "" }) {
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`shrink-0 drop-shadow-md ${className}`}
+      className={`shrink-0 drop-shadow-md select-none ${className}`}
       aria-hidden="true"
     >
       <defs>
-        {/* Exterior border gradient */}
-        <linearGradient id="wbLogoBorder" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#fb923c" />
-          <stop offset="50%" stopColor="#ea580c" />
-          <stop offset="100%" stopColor="#f59e0b" />
+        {/* Shield Border Gradient */}
+        <linearGradient id={isLight ? "wbBorderBp" : "wbBorderInd"} x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+          {isLight ? (
+            <>
+              <stop offset="0%" stopColor="#38bdf8" />
+              <stop offset="50%" stopColor="#0f4c81" />
+              <stop offset="100%" stopColor="#f59e0b" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#f59e0b" />
+              <stop offset="50%" stopColor="#ea580c" />
+              <stop offset="100%" stopColor="#38bdf8" />
+            </>
+          )}
         </linearGradient>
 
-        {/* Shield background fill */}
-        <linearGradient id="wbLogoBg" x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#1e2430" />
-          <stop offset="100%" stopColor="#0f131a" />
+        {/* Shield Backing Gradient */}
+        <linearGradient id={isLight ? "wbBgBp" : "wbBgInd"} x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
+          {isLight ? (
+            <>
+              <stop offset="0%" stopColor="#0f4c81" />
+              <stop offset="100%" stopColor="#082846" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#1a202c" />
+              <stop offset="100%" stopColor="#0b0e14" />
+            </>
+          )}
         </linearGradient>
 
-        {/* Mixer drum gradient */}
-        <linearGradient id="wbDrumGrad" x1="28" y1="28" x2="72" y2="65" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#ff7a1a" />
-          <stop offset="55%" stopColor="#ea580c" />
-          <stop offset="100%" stopColor="#c2410c" />
+        {/* Monogram Primary Beam Gradient (W Left & Spine) */}
+        <linearGradient id={isLight ? "wbBeamPriBp" : "wbBeamPriInd"} x1="20" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+          {isLight ? (
+            <>
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="50%" stopColor="#e2e8f0" />
+              <stop offset="100%" stopColor="#cbd5e1" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="50%" stopColor="#f1f5f9" />
+              <stop offset="100%" stopColor="#cbd5e1" />
+            </>
+          )}
         </linearGradient>
 
-        {/* Metallic beam gradient */}
-        <linearGradient id="wbBeamGrad" x1="15" y1="35" x2="85" y2="85" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#f8fafc" />
-          <stop offset="45%" stopColor="#cbd5e1" />
-          <stop offset="100%" stopColor="#94a3b8" />
+        {/* Monogram Accent Beam Gradient (B Loops & Cantilevers) */}
+        <linearGradient id={isLight ? "wbAccentBp" : "wbAccentInd"} x1="40" y1="20" x2="90" y2="80" gradientUnits="userSpaceOnUse">
+          {isLight ? (
+            <>
+              <stop offset="0%" stopColor="#38bdf8" />
+              <stop offset="50%" stopColor="#0ea5e9" />
+              <stop offset="100%" stopColor="#0284c7" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#fbbf24" />
+              <stop offset="50%" stopColor="#f59e0b" />
+              <stop offset="100%" stopColor="#ea580c" />
+            </>
+          )}
         </linearGradient>
 
-        {/* Golden aggregate highlight */}
-        <linearGradient id="wbGoldAccent" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#fde047" />
-          <stop offset="100%" stopColor="#f59e0b" />
+        {/* Diamond Core Slump Crystal Gradient */}
+        <linearGradient id="wbCoreDiamond" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#fef08a" />
+          <stop offset="50%" stopColor="#f59e0b" />
+          <stop offset="100%" stopColor="#d97706" />
         </linearGradient>
 
-        {/* Glow filter */}
-        <filter id="wbOrangeGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        {/* Subtle Depth Shadow */}
+        <filter id="wbGlowFilter" x="-15%" y="-15%" width="130%" height="130%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor={isLight ? "#0284c7" : "#f59e0b"} floodOpacity="0.3" />
         </filter>
       </defs>
 
-      {/* Hexagonal Industrial Base Shield */}
+      {/* 1. Outer Architectural Hexagonal Shield Frame */}
       <polygon
-        points="50,4 88,24 88,76 50,96 12,76 12,24"
-        fill="url(#wbLogoBg)"
-        stroke="url(#wbLogoBorder)"
-        strokeWidth="3.5"
+        points="50,4 90,24 90,76 50,96 10,76 10,24"
+        fill={`url(#${isLight ? 'wbBgBp' : 'wbBgInd'})`}
+        stroke={`url(#${isLight ? 'wbBorderBp' : 'wbBorderInd'})`}
+        strokeWidth="3.2"
         strokeLinejoin="round"
       />
 
-      {/* Inner Hexagon Frame Accent */}
-      <polygon
-        points="50,11 82,29 82,71 50,89 18,71 18,29"
-        fill="none"
-        stroke="#ffffff"
-        strokeWidth="1"
-        strokeOpacity="0.08"
-        strokeLinejoin="round"
-      />
+      {/* 2. Precision Architectural Drafting Grid Lines (Inside Shield) */}
+      <g opacity={isLight ? "0.18" : "0.08"} stroke="#ffffff" strokeWidth="0.8">
+        <line x1="20" y1="50" x2="80" y2="50" strokeDasharray="2 2" />
+        <line x1="50" y1="15" x2="50" y2="85" strokeDasharray="2 2" />
+        <circle cx="50" cy="50" r="34" fill="none" strokeDasharray="3 3" />
+      </g>
 
-      {/* Transit Mixer Drum Geometry (Central RMC Heart) */}
-      {/* Tilted faceted drum silhouette */}
-      <path
-        d="M32 40 L45 28 L62 31 L68 45 L56 58 L38 55 Z"
-        fill="url(#wbDrumGrad)"
-        filter="url(#wbOrangeGlow)"
-        opacity="0.95"
-      />
+      {/* 3. ULTRA-MODERN GEOMETRIC 'WB' MONOGRAM */}
+      <g filter="url(#wbGlowFilter)">
+        
+        {/* --- PART 1: THE 'W' STRUCTURAL BEAMS (Left Flank) --- */}
+        
+        {/* W-1: Left Outer Slanted Column */}
+        <path
+          d="M20 28 L28 28 L35 70 L27 70 Z"
+          fill={`url(#${isLight ? 'wbBeamPriBp' : 'wbBeamPriInd'})`}
+        />
+        {/* W-1 Bevel Highlight Face (3D concrete chamfer) */}
+        <path
+          d="M20 28 L23 28 L30 70 L27 70 Z"
+          fill="#ffffff"
+          opacity="0.6"
+        />
 
-      {/* Drum Spiral Mixing Blades (Indicating continuous uniform agitation) */}
-      <path
-        d="M37 36 Q49 34 58 44 Q50 52 40 48"
-        fill="none"
-        stroke="#ffffff"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        opacity="0.9"
-      />
-      <path
-        d="M48 30 Q58 35 64 42"
-        fill="none"
-        stroke="#fde047"
-        strokeWidth="2"
-        strokeLinecap="round"
-        opacity="0.85"
-      />
+        {/* W-2: Inner Rising Diagonal Column */}
+        <path
+          d="M32 70 L40 40 L47 40 L39 70 Z"
+          fill={`url(#${isLight ? 'wbBeamPriBp' : 'wbBeamPriInd'})`}
+        />
+        {/* W-2 Top Chamfer Edge */}
+        <path
+          d="M40 40 L47 40 L45 44 L38 44 Z"
+          fill="#ffffff"
+          opacity="0.75"
+        />
 
-      {/* Heavy Structural 'W' Concrete Foundation Wings */}
-      {/* Left Wing of 'W' */}
-      <path
-        d="M20 33 L29 33 L37 66 L44 48 L37 48 L32 37 L20 33 Z"
-        fill="url(#wbBeamGrad)"
-      />
-      {/* Right Wing of 'W' */}
-      <path
-        d="M80 33 L71 33 L63 66 L56 48 L63 48 L68 37 L80 33 Z"
-        fill="url(#wbBeamGrad)"
-      />
-      {/* Central Apex & Foundation V of 'W' */}
-      <path
-        d="M36 67 L50 83 L64 67 L57 67 L50 75 L43 67 Z"
-        fill="url(#wbLogoBorder)"
-      />
+        {/* --- PART 2: THE CENTRAL STRUCTURAL SPINE (Shared W & B anchor) --- */}
+        <path
+          d="M45 22 L53 22 L53 78 L45 78 Z"
+          fill={`url(#${isLight ? 'wbBeamPriBp' : 'wbBeamPriInd'})`}
+        />
+        {/* Spine 3D Shadow Flank */}
+        <path
+          d="M51 22 L53 22 L53 78 L51 78 Z"
+          fill="#000000"
+          opacity="0.2"
+        />
 
-      {/* Top IS / Concrete Quality Chevron */}
-      <path
-        d="M44 19 L50 14 L56 19 L50 22 Z"
-        fill="url(#wbGoldAccent)"
-      />
+        {/* --- PART 3: THE 'B' CANTILEVER LOOPS (Right Flank) --- */}
+        
+        {/* B-Top: Upper Cantilever Loop */}
+        <path
+          d="M53 22 H71 C77.5 22 82 26.5 82 33 C82 39.5 77.5 44 71 44 H53 V22 Z 
+             M61 30 V36 H70 C72.5 36 74 34.8 74 33 C74 31.2 72.5 30 70 30 H61 Z"
+          fill={`url(#${isLight ? 'wbAccentBp' : 'wbAccentInd'})`}
+          fillRule="evenodd"
+        />
 
-      {/* 3 Unified Aggregate Hex-Crystals at Base (Sand, Aggregate, Cement) */}
-      <circle cx="50" cy="88" r="2.5" fill="#f59e0b" />
-      <circle cx="43" cy="85" r="2" fill="#94a3b8" />
-      <circle cx="57" cy="85" r="2" fill="#94a3b8" />
+        {/* B-Bottom: Lower Cantilever Foundation Loop (Slightly bolder base for structural balance) */}
+        <path
+          d="M53 44 H73 C79.5 44 84 49 84 56 C84 63 79.5 68 73 68 H53 V44 Z 
+             M61 52 V60 H72 C74.5 60 76 58.5 76 56 C76 53.5 74.5 52 72 52 H61 Z"
+          fill={`url(#${isLight ? 'wbAccentBp' : 'wbAccentInd'})`}
+          fillRule="evenodd"
+        />
+
+        {/* B Loop Highlight Top Bevel */}
+        <path
+          d="M53 22 H71 C77.5 22 82 26.5 82 33 L80 33 C80 27.5 76 24 71 24 H53 V22 Z"
+          fill="#ffffff"
+          opacity="0.5"
+        />
+
+        {/* --- PART 4: NEXUS DIAMOND CORE (Aggregate Slump Apex) --- */}
+        {/* Sits at the structural center (x=49, y=44) */}
+        <path
+          d="M49 39 L54 44 L49 49 L44 44 Z"
+          fill="url(#wbCoreDiamond)"
+          stroke="#ffffff"
+          strokeWidth="1.2"
+        />
+        <circle cx="49" cy="44" r="1.2" fill="#ffffff" />
+
+      </g>
+
+      {/* 4. Base Footing Micro Ticks (Indicating precision millimeter slump) */}
+      <circle cx="36" cy="85" r="1.8" fill={isLight ? "#38bdf8" : "#94a3b8"} />
+      <circle cx="50" cy="88" r="2.2" fill="#f59e0b" />
+      <circle cx="64" cy="85" r="1.8" fill={isLight ? "#38bdf8" : "#94a3b8"} />
     </svg>
   );
 }
@@ -144,79 +211,119 @@ export default function BrandLogo({
   variant = 'full', // 'full' | 'icon' | 'stacked'
   size = 'md',     // 'sm' | 'md' | 'lg' | 'xl'
   showTagline = true,
+  theme = 'light', // 'light' | 'dark'
   className = "",
   textClassName = "",
   onClick = null
 }) {
   const iconSizes = {
     sm: 34,
-    md: 44,
-    lg: 56,
-    xl: 72
+    md: 42,
+    lg: 54,
+    xl: 70
   };
 
-  const markSize = typeof size === 'number' ? size : iconSizes[size] || 44;
+  const markSize = typeof size === 'number' ? size : iconSizes[size] || 42;
+  const isLight = theme === 'light' || theme === 'blueprint';
 
+  // Variant 1: Pure Icon Only
   if (variant === 'icon') {
     return (
-      <div className={`inline-flex items-center justify-center ${className}`} onClick={onClick}>
-        <BrandMark size={markSize} />
+      <div 
+        className={`inline-flex items-center justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95 ${className}`} 
+        onClick={onClick}
+      >
+        <BrandMark size={markSize} theme={theme} />
       </div>
     );
   }
 
+  // Variant 2: Stacked (Used in Preloader, High-Impact Centers, or Large Footers)
   if (variant === 'stacked') {
     return (
       <div
         className={`flex flex-col items-center text-center group cursor-pointer select-none ${className}`}
         onClick={onClick}
       >
-        <div className="relative p-2 rounded-2xl bg-gradient-to-b from-white/10 to-white/0 border border-white/10 shadow-2xl mb-3 group-hover:border-orange-500/40 transition-colors">
-          <BrandMark size={markSize} />
+        <div className={`relative p-2.5 rounded-2xl transition-all duration-300 ${
+          isLight
+            ? 'bg-blue-50/80 border border-blue-200/90 shadow-md group-hover:border-blue-400 group-hover:shadow-lg'
+            : 'bg-white/5 border border-white/10 shadow-2xl group-hover:border-amber-500/40 group-hover:bg-amber-500/5'
+        } mb-3`}>
+          <BrandMark size={markSize} theme={theme} />
         </div>
+
         <div className="flex flex-col items-center">
-          <span className="font-heading font-black text-xl sm:text-2xl tracking-tight text-white leading-none">
-            WALUNJ <span className="text-orange-500">BROTHER'S</span>
+          <span className={`font-heading font-black text-xl sm:text-2xl tracking-tight leading-none ${
+            isLight ? 'text-slate-900 group-hover:text-blue-900' : 'text-white group-hover:text-amber-400'
+          }`}>
+            WALUNJ <span className={isLight ? 'text-blue-700' : 'text-amber-500'}>BROTHER'S</span>
           </span>
+
           {showTagline && (
-            <span className="text-[11px] sm:text-xs tracking-[0.25em] uppercase font-bold text-orange-400/90 mt-1.5 flex items-center gap-1.5">
-              <span>READY-MIX CONCRETE</span>
-              <span className="w-1 h-1 rounded-full bg-orange-500"></span>
-              <span>PUNE</span>
-            </span>
+            <div className="flex items-center gap-2 mt-2">
+              <span className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider ${
+                isLight 
+                  ? 'bg-blue-100 text-blue-800 border border-blue-200' 
+                  : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+              }`}>
+                RMC
+              </span>
+              <span className={`text-[11px] uppercase tracking-[0.2em] font-bold ${
+                isLight ? 'text-slate-600' : 'text-slate-400'
+              }`}>
+                Ready-Mix Concrete • Pune
+              </span>
+            </div>
           )}
         </div>
       </div>
     );
   }
 
-  // Default 'full' horizontal lockup
+  // Variant 3 (Default): Full Horizontal Lockup (Navbar, Headers, Standard Footer)
   return (
     <div
-      className={`flex items-center gap-3 group select-none ${className}`}
+      className={`flex items-center gap-3 group select-none cursor-pointer ${className}`}
       onClick={onClick}
     >
-      <div className="relative p-1 rounded-xl bg-white/5 border border-white/10 group-hover:border-orange-500/40 group-hover:bg-orange-500/10 transition-all duration-300 shrink-0">
-        <BrandMark size={markSize} />
+      {/* Icon Housing with Subtle Modern Rim */}
+      <div className={`relative p-1.5 rounded-2xl transition-all duration-300 shrink-0 ${
+        isLight
+          ? 'bg-blue-50/70 border border-blue-200/80 shadow-xs group-hover:border-blue-400 group-hover:bg-blue-100/60 group-hover:scale-105'
+          : 'bg-white/5 border border-white/10 group-hover:border-amber-500/40 group-hover:bg-amber-500/10 group-hover:scale-105'
+      }`}>
+        <BrandMark size={markSize} theme={theme} />
       </div>
 
+      {/* Typography Lockup */}
       <div className={`flex flex-col min-w-0 ${textClassName}`}>
         <div className="flex items-center gap-1.5 leading-none">
-          <span className="font-heading font-black text-base sm:text-lg md:text-xl tracking-tight text-white group-hover:text-orange-400 transition-colors truncate">
+          <span className={`font-heading font-black text-base sm:text-lg md:text-xl tracking-tight truncate transition-colors ${
+            isLight ? 'text-slate-900 group-hover:text-blue-700' : 'text-white group-hover:text-amber-400'
+          }`}>
             WALUNJ
           </span>
-          <span className="font-heading font-black text-base sm:text-lg md:text-xl tracking-tight text-orange-500 truncate">
+          <span className={`font-heading font-black text-base sm:text-lg md:text-xl tracking-tight truncate ${
+            isLight ? 'text-blue-700' : 'text-amber-500'
+          }`}>
             BROTHER'S
           </span>
         </div>
 
         {showTagline && (
           <div className="flex items-center gap-1.5 mt-1">
-            <span className="px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] uppercase font-extrabold tracking-wider bg-orange-500/15 border border-orange-500/30 text-orange-400 leading-none">
+            <span className={`px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] uppercase font-black tracking-wider leading-none shrink-0 ${
+              isLight
+                ? 'bg-amber-500/15 border border-amber-500/30 text-amber-700 dark:text-amber-400'
+                : 'bg-amber-500/20 border border-amber-500/40 text-amber-400'
+            }`}>
               RMC
             </span>
-            <span className="text-[10px] sm:text-[11px] uppercase tracking-widest font-semibold text-slate-400 truncate">
-              Ready-Mix Concrete
+            <span className={`text-[10px] sm:text-[11px] uppercase tracking-wider font-bold truncate ${
+              isLight ? 'text-slate-600' : 'text-slate-400'
+            }`}>
+              Ready-Mix Concrete • Pune
             </span>
           </div>
         )}

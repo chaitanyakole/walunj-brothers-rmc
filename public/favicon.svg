@@ -1,95 +1,65 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
   <defs>
-    <linearGradient id="wbLogoBorder" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#fb923c" />
-      <stop offset="50%" stopColor="#ea580c" />
+    <linearGradient id="favBorder" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#38bdf8" />
+      <stop offset="50%" stopColor="#0f4c81" />
       <stop offset="100%" stopColor="#f59e0b" />
     </linearGradient>
-    <linearGradient id="wbLogoBg" x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#1e2430" />
-      <stop offset="100%" stopColor="#0f131a" />
+    <linearGradient id="favBg" x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#0f4c81" />
+      <stop offset="100%" stopColor="#082846" />
     </linearGradient>
-    <linearGradient id="wbDrumGrad" x1="28" y1="28" x2="72" y2="65" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#ff7a1a" />
-      <stop offset="55%" stopColor="#ea580c" />
-      <stop offset="100%" stopColor="#c2410c" />
+    <linearGradient id="favBeam" x1="20" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#ffffff" />
+      <stop offset="100%" stopColor="#cbd5e1" />
     </linearGradient>
-    <linearGradient id="wbBeamGrad" x1="15" y1="35" x2="85" y2="85" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#f8fafc" />
-      <stop offset="45%" stopColor="#cbd5e1" />
-      <stop offset="100%" stopColor="#94a3b8" />
+    <linearGradient id="favAccent" x1="40" y1="20" x2="90" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#fbbf24" />
+      <stop offset="50%" stopColor="#f59e0b" />
+      <stop offset="100%" stopColor="#ea580c" />
     </linearGradient>
-    <linearGradient id="wbGoldAccent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stopColor="#fde047" />
+    <linearGradient id="favDiamond" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stopColor="#fef08a" />
       <stop offset="100%" stopColor="#f59e0b" />
     </linearGradient>
   </defs>
 
-  <!-- Hexagonal Industrial Base Shield -->
+  <!-- Hexagonal Architectural Shield -->
   <polygon
-    points="50,4 88,24 88,76 50,96 12,76 12,24"
-    fill="url(#wbLogoBg)"
-    stroke="url(#wbLogoBorder)"
+    points="50,4 90,24 90,76 50,96 10,76 10,24"
+    fill="url(#favBg)"
+    stroke="url(#favBorder)"
     stroke-width="4"
     stroke-linejoin="round"
   />
 
-  <!-- Inner Hexagon Frame Accent -->
-  <polygon
-    points="50,11 82,29 82,71 50,89 18,71 18,29"
-    fill="none"
-    stroke="#ffffff"
-    stroke-width="1.2"
-    stroke-opacity="0.12"
-    stroke-linejoin="round"
+  <!-- WB MONOGRAM BEAMS -->
+  <!-- W Left Column -->
+  <path d="M20 28 L28 28 L35 70 L27 70 Z" fill="url(#favBeam)" />
+  <!-- W Rising Diagonal -->
+  <path d="M32 70 L40 40 L47 40 L39 70 Z" fill="url(#favBeam)" />
+  <!-- Center Structural Spine -->
+  <path d="M45 22 L53 22 L53 78 L45 78 Z" fill="url(#favBeam)" />
+
+  <!-- B Cantilever Loops -->
+  <path
+    d="M53 22 H71 C77.5 22 82 26.5 82 33 C82 39.5 77.5 44 71 44 H53 V22 Z 
+       M61 30 V36 H70 C72.5 36 74 34.8 74 33 C74 31.2 72.5 30 70 30 H61 Z"
+    fill="url(#favAccent)"
+    fill-rule="evenodd"
+  />
+  <path
+    d="M53 44 H73 C79.5 44 84 49 84 56 C84 63 79.5 68 73 68 H53 V44 Z 
+       M61 52 V60 H72 C74.5 60 76 58.5 76 56 C76 53.5 74.5 52 72 52 H61 Z"
+    fill="url(#favAccent)"
+    fill-rule="evenodd"
   />
 
-  <!-- Transit Mixer Drum Silhouette -->
-  <path
-    d="M32 40 L45 28 L62 31 L68 45 L56 58 L38 55 Z"
-    fill="url(#wbDrumGrad)"
-  />
+  <!-- Nexus Core Diamond -->
+  <path d="M49 39 L54 44 L49 49 L44 44 Z" fill="url(#favDiamond)" stroke="#ffffff" stroke-width="1.2" />
 
-  <!-- Drum Spiral Mixing Blades -->
-  <path
-    d="M37 36 Q49 34 58 44 Q50 52 40 48"
-    fill="none"
-    stroke="#ffffff"
-    stroke-width="2.5"
-    stroke-linecap="round"
-    opacity="0.9"
-  />
-  <path
-    d="M48 30 Q58 35 64 42"
-    fill="none"
-    stroke="#fde047"
-    stroke-width="2"
-    stroke-linecap="round"
-    opacity="0.85"
-  />
-
-  <!-- Heavy Structural 'W' Foundation Wings -->
-  <path
-    d="M20 33 L29 33 L37 66 L44 48 L37 48 L32 37 L20 33 Z"
-    fill="url(#wbBeamGrad)"
-  />
-  <path
-    d="M80 33 L71 33 L63 66 L56 48 L63 48 L68 37 L80 33 Z"
-    fill="url(#wbBeamGrad)"
-  />
-  <path
-    d="M36 67 L50 83 L64 67 L57 67 L50 75 L43 67 Z"
-    fill="url(#wbLogoBorder)"
-  />
-
-  <!-- Top Chevron -->
-  <path
-    d="M44 19 L50 14 L56 19 L50 22 Z"
-    fill="url(#wbGoldAccent)"
-  />
-
-  <!-- Aggregates -->
-  <circle cx="50" cy="88" r="3" fill="#f59e0b" />
-  <circle cx="42" cy="85" r="2.5" fill="#94a3b8" />
-  <circle cx="58" cy="85" r="2.5" fill="#94a3b8" />
+  <!-- Base Slump Indicators -->
+  <circle cx="36" cy="85" r="2" fill="#38bdf8" />
+  <circle cx="50" cy="88" r="2.8" fill="#f59e0b" />
+  <circle cx="64" cy="85" r="2" fill="#38bdf8" />
 </svg>

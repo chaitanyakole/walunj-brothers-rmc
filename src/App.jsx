@@ -19,8 +19,10 @@ import Contact from './sections/Contact';
 import InstagramSection from './sections/Instagram';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
+import ThemeSwitcher from './components/ThemeSwitcher';
+import { ThemeProvider } from './context/ThemeContext';
 
-export default function App() {
+function AppContent() {
   const [selectedGrade, setSelectedGrade] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
@@ -48,11 +50,11 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#121417] text-slate-100 flex flex-col selection:bg-orange-500 selection:text-white w-full overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#f8fafc] dark:bg-[#0e1117] text-slate-800 dark:text-slate-200 flex flex-col selection:bg-amber-500 selection:text-white dark:selection:text-slate-950 w-full overflow-x-hidden transition-colors duration-300">
       {/* Intro Preloader */}
       <Preloader />
 
-      {/* Sticky Navigation */}
+      {/* Sticky Navigation with Embedded Theme Switcher */}
       <Navbar onQuoteClick={scrollToQuote} />
 
       {/* Main Homepage Flow */}
@@ -113,8 +115,20 @@ export default function App() {
       {/* Footer */}
       <Footer />
 
+      {/* Floating Theme Quick Switcher */}
+      <ThemeSwitcher variant="floating" />
+
       {/* Floating CTA (Desktop WhatsApp & Mobile Fixed Action Bar) */}
       <FloatingCTA onQuoteClick={scrollToQuote} />
     </div>
   );
 }
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}
+

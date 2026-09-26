@@ -68,13 +68,13 @@ export default function Lightbox({ isOpen, items, currentIndex, onClose, onPrev,
           <X className="w-6 h-6" />
         </button>
 
-        {/* Previous Button (Hidden on very narrow mobile screens in favor of touch swipe, but visible on sm+) */}
+        {/* Previous Button */}
         <button
           onClick={(e) => {
             e.stopPropagation();
             onPrev();
           }}
-          className="hidden sm:flex absolute left-2 sm:left-6 z-50 w-12 h-12 rounded-full bg-black/60 hover:bg-orange-500 text-white items-center justify-center transition-all border border-white/10 active:scale-95"
+          className="hidden sm:flex absolute left-2 sm:left-6 z-50 w-12 h-12 rounded-full bg-black/60 hover:bg-[#0f4c81] text-white items-center justify-center transition-all border border-white/10 active:scale-95"
           aria-label="Previous image"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -86,7 +86,7 @@ export default function Lightbox({ isOpen, items, currentIndex, onClose, onPrev,
             e.stopPropagation();
             onNext();
           }}
-          className="hidden sm:flex absolute right-2 sm:right-6 z-50 w-12 h-12 rounded-full bg-black/60 hover:bg-orange-500 text-white items-center justify-center transition-all border border-white/10 active:scale-95"
+          className="hidden sm:flex absolute right-2 sm:right-6 z-50 w-12 h-12 rounded-full bg-black/60 hover:bg-[#0f4c81] text-white items-center justify-center transition-all border border-white/10 active:scale-95"
           aria-label="Next image"
         >
           <ChevronRight className="w-6 h-6" />
@@ -99,7 +99,7 @@ export default function Lightbox({ isOpen, items, currentIndex, onClose, onPrev,
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.2 }}
-          className="relative max-w-5xl max-h-[85vh] w-full bg-[#161a22] rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col z-10"
+          className="relative max-w-5xl max-h-[85vh] w-full bg-slate-900 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl flex flex-col z-10"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden min-h-[300px] max-h-[65vh]">
@@ -110,10 +110,10 @@ export default function Lightbox({ isOpen, items, currentIndex, onClose, onPrev,
             />
           </div>
 
-          <div className="p-3.5 sm:p-6 bg-[#161a22] border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="p-3.5 sm:p-6 bg-slate-900 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-orange-400 bg-orange-500/10 px-2.5 py-0.5 rounded-full border border-orange-500/20">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
                   {currentItem.category}
                 </span>
                 <span className="text-xs text-slate-400">
@@ -129,11 +129,11 @@ export default function Lightbox({ isOpen, items, currentIndex, onClose, onPrev,
             </div>
 
             {/* Mobile Prev / Next Buttons */}
-            <div className="flex sm:hidden items-center justify-between gap-2 pt-2 border-t border-white/5">
+            <div className="flex sm:hidden items-center justify-between gap-2 pt-2 border-t border-slate-800">
               <button
                 type="button"
                 onClick={onPrev}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white/5 text-slate-200 text-xs font-semibold active:bg-white/10"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-800 text-slate-200 text-xs font-semibold active:bg-slate-700"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Previous</span>
@@ -142,7 +142,7 @@ export default function Lightbox({ isOpen, items, currentIndex, onClose, onPrev,
               <button
                 type="button"
                 onClick={onNext}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white/5 text-slate-200 text-xs font-semibold active:bg-white/10"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-800 text-slate-200 text-xs font-semibold active:bg-slate-700"
               >
                 <span>Next</span>
                 <ChevronRight className="w-4 h-4" />

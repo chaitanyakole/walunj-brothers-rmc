@@ -34,14 +34,14 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-14 sm:py-20 bg-[#161a22] border-t border-white/5 relative overflow-hidden">
+    <section className="py-14 sm:py-20 bg-[#f8fafc] border-t border-slate-200 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold uppercase tracking-wider mb-4">
             <MessageSquareQuote className="w-3.5 h-3.5" />
             <span>Client Feedback</span>
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white">
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-950">
             What Our Clients Say
           </h2>
         </div>
@@ -50,14 +50,14 @@ export default function Testimonials() {
           {verifiedTestimonials.map((review) => (
             <div
               key={review.id}
-              className="p-6 rounded-2xl bg-[#1c222c] border border-white/10 shadow-lg"
+              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm"
             >
-              <p className="text-slate-300 text-sm leading-relaxed mb-4 italic">
+              <p className="text-slate-700 text-sm leading-relaxed mb-4 italic">
                 "{review.comment}"
               </p>
               <div>
-                <p className="font-bold text-white text-sm">{review.clientName}</p>
-                <p className="text-xs text-orange-400">{review.project}</p>
+                <p className="font-bold text-slate-900 text-sm">{review.clientName}</p>
+                <p className="text-xs text-blue-700 font-semibold">{review.project}</p>
               </div>
             </div>
           ))}

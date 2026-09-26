@@ -31,18 +31,21 @@ export default function InstagramSection() {
   ];
 
   return (
-    <section id="instagram" className="py-12 sm:py-16 md:py-20 bg-[#14171d] border-t border-white/5 relative overflow-hidden">
+    <section id="instagram" className="py-12 sm:py-16 md:py-20 bg-slate-50 dark:bg-[#0E1117] border-t border-slate-200/80 dark:border-slate-800 relative overflow-hidden">
+      {/* Background blueprint grid */}
+      <div className="absolute inset-0 bg-blueprint-grid opacity-40 pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 sm:gap-6 mb-8 sm:mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-200 dark:border-pink-800/60 text-pink-600 dark:text-pink-400 text-xs font-bold uppercase tracking-widest mb-3">
               <InstagramIcon className="w-3.5 h-3.5" />
               <span>Social Updates</span>
             </div>
-            <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
+            <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-950 dark:text-white">
               Follow Walunj Brother's RMC
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl">
               Stay connected with daily site deliveries, batching operations, and construction highlights around Pune.
             </p>
           </div>
@@ -51,7 +54,7 @@ export default function InstagramSection() {
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] rounded-xl bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-pink-500/20 hover:opacity-90 active:scale-95 transition-all w-full sm:w-auto shrink-0"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] rounded-xl bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-pink-500/20 hover:opacity-95 hover:shadow-lg active:scale-95 transition-all w-full sm:w-auto shrink-0"
           >
             <InstagramIcon className="w-4 h-4" />
             <span>Visit Instagram Profile</span>
@@ -67,7 +70,7 @@ export default function InstagramSection() {
               href={instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative rounded-xl overflow-hidden aspect-square bg-[#1a1f29] border border-white/10 hover:border-pink-500/40 transition-all duration-300"
+              className="group relative rounded-xl overflow-hidden aspect-square bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs hover:border-pink-500/50 hover:shadow-lg transition-all duration-300"
             >
               <img
                 src={item.image}
@@ -75,8 +78,8 @@ export default function InstagramSection() {
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-4">
-                <div className="flex items-center gap-1.5 text-pink-400 mb-1.5">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-4">
+                <div className="flex items-center gap-1.5 text-pink-300 mb-1.5">
                   <InstagramIcon className="w-4 h-4" />
                   <span className="text-[10px] font-bold uppercase tracking-wider">Walunj RMC</span>
                 </div>
